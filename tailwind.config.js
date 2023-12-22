@@ -18,5 +18,7 @@ export default {
         },
     },
 
-    plugins: [forms],
+    // plugins: [forms],
+    // plugins: [require("daisyui")],
+    plugins: [require('@tailwindcss/forms'), require("daisyui")],
 };

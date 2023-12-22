@@ -1,0 +1,16 @@
+/* for desktop avatar menu */
+.dropdown-end:hover > ul{
+display: block !important;
+}
+
+.avatar-menu{
+display: none;
+}
+
+/* for mobile */
+.mob-icon:hover > ul{
+   display: block !important; 
+}
+.mob-menu{
+   display: none; 
+}
