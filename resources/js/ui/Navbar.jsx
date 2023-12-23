@@ -1,70 +1,121 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Bars3Icon } from '@heroicons/react/24/solid';
-import "../../css/Navbar.css";
-import menu from "../../../public/data/"
+import menu from "../../../public/data/menus.json"
+import { Link } from '@inertiajs/react';
+import logo from '@/AriTechsResource/Logo/logo-transparent.png';
 
 const Navbar = () => {
-    const {menus} = menu;
+    const { menus } = menu;
+     const [hoveredItem, setHoveredItem] = useState(null);
+     const [isHovered, setIsHovered] = useState(false);
+
+    const user = {
+        name: "didar",
+        email: "didar@gmail.com",
+        photoURL: "developer"
+    };
+
+    const handleLogout = () => {
+        logout()
+            .then()
+            .catch();
+    }
 
     return (
-    <div className = "navbar sticky top-0 z-50 bg-white" >
-    {/* Mobile Menu */}
+  <div className="navbar bg-base-100">
   <div className="navbar-start">
     <div className="dropdown">
-      <label tabIndex={0} className="mob-icon btn btn-ghost md:hidden lg:hidden">
-        <Bars3Icon className = "h-12 w-12 text-black-500" />
-      <ul tabIndex={0} className="mob-menu menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box font-bold w-52 top-8 left-0.5">
-      
-      {menus.length > 0 &&
-    menus.map((menu) => (
-        <li className='text-white bg-red-500' key={menu.id}>
-            <Link to={menu.path}>{menu.title}</Link>
-            {/* Submenu */}
-            {menu.dropdown && menu.dropdown.length > 0 && (
+      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+        <Link to={"/"}><img className='h-24' src={logo} alt='' /></Link>
+      </div>
+      <ul tabIndex={0} className="mob-menu menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box font-bold w-52 top-8 left-0.5"
+          key={menu.id}
+          onMouseEnter={() => setHoveredItem(menu.id)}
+          onMouseLeave={() => setHoveredItem(null)}
+          >
+              {/* main menu */}
+          {menus.length >0 &&
+              menus.map((menu)=> (
+          <li className='text-white bg-red-500' key={menu.id}>
+                <Link to={menu.path}>{menu.title}</Link>
+                {/* Submenu */}
+                {menu?.dropdown?.length > 0 && (
                 <ul className="p-2 bg-red-500 text-white">
-                    {menu.dropdown.map((dropdownMenu) => (
-                        <li className="" key={dropdownMenu.id}>
-                            <Link to={dropdownMenu.path}>{dropdownMenu.title}</Link>
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </li>
-    ))
-}
+                  {menu?.dropdown?.map(dropdownMenu =>(
+                  <li className="" key={dropdownMenu.id}>
+                    <Link to={dropdownMenu.path}>{dropdownMenu.title}</Link> 
+                  </li>
+                  ))}
+            </ul>
+                  )}
+          </li>
+              ))}
 
-        {/* <li><a>Item 1</a></li>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
           </ul>
-        </li>
-        <li><a>Item 3</a></li> */}
-      </ul>
-      </label>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <Link to={"/"}><img className='h-24' src={logo} alt='' /></Link>
   </div>
+
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
+    <ul className="menu menu-horizontal px-1"
+          key={menu.id}
+          onMouseEnter={() => setIsHoveredCenter(true)}
+          onMouseLeave={() => setIsHoveredCenter(false)}
+          >
+              {/* main menu */}
+          {menus.length >0 &&
+              menus.map((menu)=> (
+          <li className='text-white bg-red-500 relative' 
+          key={menu.id}
+          onMouseEnter={() => setHoveredItem(menu.id)}
+          onMouseLeave={() => setHoveredItem(null)}
+          >
+                <Link to={menu.path}>{menu.title}</Link>
+                {/* Submenu */}
+                {menu?.dropdown?.length > 0 && hoveredItem === menu.id && (
+                <ul className="p-2 bg-red-500 text-white absolute top-full left-0"
+                style={{ width: "200px" }}
+                >
+                  {menu?.dropdown?.map(dropdownMenu =>(
+                  <li className="" key={dropdownMenu.id}>
+                    <Link to={dropdownMenu.path}>{dropdownMenu.title}</Link> 
+                  </li>
+                  ))}
+            </ul>
+                  )}
+          </li>
+              ))}
+
           </ul>
-        </details>
-      </li>
-      <li><a>Item 3</a></li>
-    </ul>
   </div>
+
   <div className="navbar-end">
-    <a className="btn">Button</a>
+    <div className="dropdown dropdown-end">
+            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+            >
+              <div className="w-10 rounded-full">
+                <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              </div>
+            </div>
+            {isHovered && (
+            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li><a>Settings</a></li>
+              <li><a>Logout</a></li>
+            </ul>
+            )}
+          </div>
   </div>
+
+        
+
 </div>
     );
 };
