@@ -1,12 +1,15 @@
 import Navbar from '@/ui/Navbar';
+import OurNetworkService from '@/ui/OurNetworkService';
+import Slider from '@/ui/Slider';
 import React from 'react';
 
 const Welcome = () => {
 
     return (
-        <div>
+        <div className='mx-20'>
             <Navbar />
-            <h1 className='text-xl' >Hello World</h1>
+            <Slider />
+            <OurNetworkService />
         </div>
     );
 };
