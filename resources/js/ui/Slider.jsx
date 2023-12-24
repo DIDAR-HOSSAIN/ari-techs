@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import slider1 from '@/AriTechsResource/Banner-image/pexels-aleksandar-pasaric-325185-min.jpg';
-import slider2 from '@/AriTechsResource/Banner-image/pexels-christina-morillo-1181271-min (2).jpg';
-import slider3 from '@/AriTechsResource/Banner-image/pexels-federico-orlandi-3260626-min (1).jpg';
-import slider4 from '@/AriTechsResource/Banner-image/pexels-pixabay-247791.jpg';
+import slider1 from '@/assets/images/slider-image/background.jpg';
+import slider2 from '@/assets/images/slider-image/ladies.jpg';
+import slider3 from '@/assets/images/slider-image/office.jpg';
 
 
 let count = 0;
@@ -27,9 +26,6 @@ timeRef.current = setTimeout(()=>{
     {
       image: slider3,
     },
-    {
-      image: slider4,
-    }
   ]
   
     const sliderImg = sliderData.map(slider => slider.image )

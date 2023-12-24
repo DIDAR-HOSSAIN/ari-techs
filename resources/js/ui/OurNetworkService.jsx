@@ -14,8 +14,7 @@ const OurNetworkService = () => {
     return (
 
         <>
-            <h1 className='text-5xl font-bold text-center text-blue-600/100 p-10'>Our Network Services</h1>
-
+            <h1 className='text-4xl font-bold text-center text-blue-600/100 mt-4'>Our Network Services</h1>
             <div className="divider divider-start"></div>
             
             <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-auto mx-auto"
@@ -60,87 +59,6 @@ const OurNetworkService = () => {
                 ))}
             </div>
         </>
-
-        // <>
-        // <h1 className='text-5xl font-bold text-center text-blue-600/100 p-10'>Our Network Services</h1>
-        
-        // <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-auto mx-auto"
-        // style={{
-        //             backgroundImage: `url(${servicesBg})`,
-        //             backgroundSize: 'cover',
-        //             backgroundPosition: 'center',
-        //             padding: '10px',
-        //             display: 'grid',
-        //             justifyContent: 'center',
-        //             alignItems: 'center'
-        //         }}
-        // >
-
-        // <div className="relative rounded-xl overflow-hidden border-blue-600 border-r border-b">
-        // <img className="w-96 h-64" src={service1} alt="Card Image" />
-        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
-        //     <h2 className="text-2xl font-bold">Network Design & Installation</h2>
-        // </div>
-        // </div>
-
-        // <div className="relative rounded-xl overflow-hidden border-blue-600 border-r border-b">
-        // <img className="w-96 h-64" src={service2} alt="Card Image" />
-        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
-        //     <h2 className="text-2xl font-bold">Network Trouble-shotting</h2>
-        // </div>
-        // </div>
-
-        // <div className="relative rounded-xl overflow-hidden border-blue-600 border-r border-b">
-        // <img className="w-96 h-64" src={service3} alt="Card Image" />
-        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
-        //     <h2 className="text-2xl font-bold">Firewall Installation</h2>
-        // </div>
-        // </div>
-
-        // <div className="relative rounded-xl overflow-hidden">
-        // <img className="w-96 h-64" src={service4} alt="Card Image" />
-        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
-        //     <h2 className="text-2xl font-bold">WIFI Solution</h2>
-        // </div>
-        // </div>
-
-        // <div className="relative rounded-xl overflow-hidden">
-        // <img className="w-96 h-64" src={service5} alt="Card Image" />
-        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
-        //     <h2 className="text-2xl font-bold">On Site Support</h2>
-        // </div>
-        // </div>
-
-        // <div className="relative rounded-xl overflow-hidden">
-        // <img className="w-96 h-64" src={service6} alt="Card Image" />
-        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
-        //     <h2 className="text-2xl font-bold">Aging Hardware</h2>
-        // </div>
-        // </div>
-
-        // <div className="relative rounded-xl overflow-hidden">
-        // <img className="w-96 h-64" src={service7} alt="Card Image" />
-        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
-        //     <h2 className="text-2xl font-bold">Network Monitoring<br /> 24/7 Support</h2>
-        // </div>
-        // </div>
-
-        // <div className="relative rounded-xl overflow-hidden">
-        // <img className="w-96 h-64" src={service8} alt="Card Image" />
-        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
-        //     <h2 className="text-2xl font-bold">Wireless Access Point Setup</h2>
-        // </div>
-        // </div>
-
-        // <div className="relative rounded-xl overflow-hidden">
-        // <img className="w-96 h-64" src={service9} alt="Card Image" />
-        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
-        //     <h2 className="text-2xl font-bold">Server Installation</h2>
-        // </div>
-        // </div>   
-
-        // </div>
-        // </>
 
     );
 };

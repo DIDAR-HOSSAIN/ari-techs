@@ -40,28 +40,28 @@ const WhyChooseUs = () => {
 
     return (
         <>
-            {/* Previous JSX remains unchanged */}
-            <div
-                className="grid gap-4 mx-auto justify-center"
-                style={{
-                    backgroundImage: `url(${servicesBg})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    padding: "20px",
-                }}
-            >
-                {/* Grid items */}
+        <div className="grid gap-4 mx-auto justify-center md:full"
+            style={{
+                backgroundImage: `url(${servicesBg})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                padding: "20px",
+                textAlign: "center",
+            }}
+        >
+            <h1 className="text-lg font-bold text-blue-300">WHY CHOOSE US</h1>
+            <h1 className="lg:text-4xl font-bold text-blue-600">5 Reasons to partner with</h1>
+            <h1 className="lg:text-4xl font-bold text-blue-600 mb-8">Aritechs</h1>
+
+            {/* Grid items */}
+            <div className="grid grid-cols-1 gap-4 max-w-4xl mx-auto">
                 {reasons.map((service, index) => (
                     <div
                         key={index}
-                        className="flex rounded-xl p-4"
-                        style={{ maxWidth: "600px" }}
+                        className="flex rounded-xl p-4 justify-center items-center"
                     >
                         {/* Left column (Image) */}
-                        <div
-                            className="flex-none mr-4"
-                            style={{ width: "100px", height: "100px" }}
-                        >
+                        <div className="flex-none mr-4" style={{ width: "80px", height: "80px" }}>
                             <img
                                 className="w-full h-full object-contain"
                                 src={service.image}
@@ -73,13 +73,14 @@ const WhyChooseUs = () => {
                             <h2 className="text-2xl font-bold mb-2">
                                 {service.title}
                             </h2>
-                            <p className="text-xl text-justify">{service.description}</p>
+                            <p className="text-base text-lg justify-center">{service.description}</p>
                         </div>
                     </div>
                 ))}
             </div>
-            {/* Rest of the JSX remains unchanged */}
-        </>
+        </div>
+        {/* Rest of the JSX remains unchanged */}
+    </>
     );
 };
 
