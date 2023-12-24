@@ -12,82 +12,135 @@ import service9 from '@/assets/images/services/9.png';
 
 const OurNetworkService = () => {
     return (
+
         <>
-        <h1 className='text-5xl font-bold text-center text-blue-600/100 p-10'>Our Network Services</h1>
-        
-        <div className="grid grid-cols-3 gap-4"
-        style={{ backgroundImage: `url(${servicesBg})` }}
-        >
+            <h1 className='text-5xl font-bold text-center text-blue-600/100 p-10'>Our Network Services</h1>
 
-        <div class="relative rounded-xl overflow-hidden">
-        <img class="w-96 h-64" src={service1} alt="Card Image" />
-        <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
-            <h2 class="text-2xl font-bold">Network Design & Installation</h2>
-        </div>
-        </div>
-
-        <div class="relative rounded-xl overflow-hidden">
-        <img class="w-96 h-64" src={service2} alt="Card Image" />
-        <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
-            <h2 class="text-2xl font-bold">Network Trouble-shotting</h2>
-        </div>
-        </div>
-
-        <div class="relative rounded-xl overflow-hidden">
-        <img class="w-96 h-64" src={service3} alt="Card Image" />
-        <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
-            <h2 class="text-2xl font-bold">Firewall Installation</h2>
-        </div>
-        </div>
-
-        <div class="relative rounded-xl overflow-hidden">
-        <img class="w-96 h-64" src={service4} alt="Card Image" />
-        <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
-            <h2 class="text-2xl font-bold">WIFI Solution</h2>
-        </div>
-        </div>
-
-        <div class="relative rounded-xl overflow-hidden">
-        <img class="w-96 h-64" src={service5} alt="Card Image" />
-        <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
-            <h2 class="text-2xl font-bold">On Site Support</h2>
-        </div>
-        </div>
-
-        <div class="relative rounded-xl overflow-hidden">
-        <img class="w-96 h-64" src={service6} alt="Card Image" />
-        <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
-            <h2 class="text-2xl font-bold">Aging Hardware</h2>
-        </div>
-        </div>
-
-        <div class="relative rounded-xl overflow-hidden">
-        <img class="w-96 h-64" src={service7} alt="Card Image" />
-        <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
-            <h2 class="text-2xl font-bold">Network Monitoring 24/7 Support</h2>
-        </div>
-        </div>
-
-        <div class="relative rounded-xl overflow-hidden">
-        <img class="w-96 h-64" src={service8} alt="Card Image" />
-        <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
-            <h2 class="text-2xl font-bold">Wireless Access Point Setup</h2>
-        </div>
-        </div>
-
-        <div class="relative rounded-xl overflow-hidden">
-        <img class="w-96 h-64" src={service9} alt="Card Image" />
-        <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
-            <h2 class="text-2xl font-bold">Server Installation</h2>
-        </div>
-        </div>
-
-
-
-   
-
-        </div>
+            <div className="divider divider-start"></div>
+            
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-auto mx-auto"
+                style={{
+                    backgroundImage: `url(${servicesBg})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    padding: '20px',
+                    display: 'grid',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+            >
+                {/* Your grid items */}
+                {[
+                    { image: service1, title: 'Network Design & Installation' },
+                    { image: service2, title: 'Network Trouble-shotting' },
+                    { image: service3, title: 'Firewall Installation' },
+                    { image: service4, title: 'WIFI Solution' },
+                    { image: service5, title: 'On Site Support' },
+                    { image: service6, title: 'Aging Hardware' },
+                    { image: service7, title: 'Network Monitoring 24/7 Support' },
+                    { image: service8, title: 'Wireless Access Point Setup' },
+                    { image: service9, title: 'Server Installation' },
+                ].map((service, index) => (
+                    <div
+                        key={index}
+                        className="relative rounded-xl overflow-hidden border border-blue-600 p-4 m-2"
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            position: 'relative',
+                        }}
+                    >
+                        <img className="" src={service.image} alt={`Service ${index + 1}`} />
+                        <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+                            <h2 className="text-2xl font-bold">{service.title}</h2>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </>
+
+        // <>
+        // <h1 className='text-5xl font-bold text-center text-blue-600/100 p-10'>Our Network Services</h1>
+        
+        // <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-auto mx-auto"
+        // style={{
+        //             backgroundImage: `url(${servicesBg})`,
+        //             backgroundSize: 'cover',
+        //             backgroundPosition: 'center',
+        //             padding: '10px',
+        //             display: 'grid',
+        //             justifyContent: 'center',
+        //             alignItems: 'center'
+        //         }}
+        // >
+
+        // <div className="relative rounded-xl overflow-hidden border-blue-600 border-r border-b">
+        // <img className="w-96 h-64" src={service1} alt="Card Image" />
+        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+        //     <h2 className="text-2xl font-bold">Network Design & Installation</h2>
+        // </div>
+        // </div>
+
+        // <div className="relative rounded-xl overflow-hidden border-blue-600 border-r border-b">
+        // <img className="w-96 h-64" src={service2} alt="Card Image" />
+        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+        //     <h2 className="text-2xl font-bold">Network Trouble-shotting</h2>
+        // </div>
+        // </div>
+
+        // <div className="relative rounded-xl overflow-hidden border-blue-600 border-r border-b">
+        // <img className="w-96 h-64" src={service3} alt="Card Image" />
+        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+        //     <h2 className="text-2xl font-bold">Firewall Installation</h2>
+        // </div>
+        // </div>
+
+        // <div className="relative rounded-xl overflow-hidden">
+        // <img className="w-96 h-64" src={service4} alt="Card Image" />
+        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+        //     <h2 className="text-2xl font-bold">WIFI Solution</h2>
+        // </div>
+        // </div>
+
+        // <div className="relative rounded-xl overflow-hidden">
+        // <img className="w-96 h-64" src={service5} alt="Card Image" />
+        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+        //     <h2 className="text-2xl font-bold">On Site Support</h2>
+        // </div>
+        // </div>
+
+        // <div className="relative rounded-xl overflow-hidden">
+        // <img className="w-96 h-64" src={service6} alt="Card Image" />
+        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+        //     <h2 className="text-2xl font-bold">Aging Hardware</h2>
+        // </div>
+        // </div>
+
+        // <div className="relative rounded-xl overflow-hidden">
+        // <img className="w-96 h-64" src={service7} alt="Card Image" />
+        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+        //     <h2 className="text-2xl font-bold">Network Monitoring<br /> 24/7 Support</h2>
+        // </div>
+        // </div>
+
+        // <div className="relative rounded-xl overflow-hidden">
+        // <img className="w-96 h-64" src={service8} alt="Card Image" />
+        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+        //     <h2 className="text-2xl font-bold">Wireless Access Point Setup</h2>
+        // </div>
+        // </div>
+
+        // <div className="relative rounded-xl overflow-hidden">
+        // <img className="w-96 h-64" src={service9} alt="Card Image" />
+        // <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+        //     <h2 className="text-2xl font-bold">Server Installation</h2>
+        // </div>
+        // </div>   
+
+        // </div>
+        // </>
 
     );
 };
