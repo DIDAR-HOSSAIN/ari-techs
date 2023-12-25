@@ -10,10 +10,10 @@ const Contact = () => {
                     <h2 className="text-3xl font-bold">Grow your business</h2>
                     <p className="mt-4">Focus on scalling and expanding your business, while we take care of your IT needs and network requirments.</p>
 
-                    <h2 className="text-3xl font-bold">Streamline Processes</h2>
+                    <h2 className="text-3xl font-bold mt-4">Streamline Processes</h2>
                     <p className="mt-4">Increase productivity and performance of your organization when you have a dedicated IT support team by your side.</p>
 
-                    <h2 className="text-3xl font-bold">Empowering your people</h2>
+                    <h2 className="text-3xl font-bold mt-4">Empowering your people</h2>
                     <p className="mt-4">Allow your employees to do more and focus on their jobs, without being held back by tech issues and concerns.</p>
                 </div>
 

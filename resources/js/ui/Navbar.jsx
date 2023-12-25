@@ -28,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-blue-600 font-bold">
     {/* Mobile Menu */}
     <div className="navbar-start">
       <div className="dropdown">
@@ -43,7 +43,7 @@ const Navbar = () => {
         </div>
         <ul
           tabIndex={0}
-          className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 ${isMenuOpen ? 'block' : 'hidden'}`}
+          className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 ${isMenuOpen ? 'block' : 'hidden'}`}
           onMouseEnter={handleMenuHover}
           onMouseLeave={() => setIsMenuOpen(false)}
         >
@@ -51,7 +51,7 @@ const Navbar = () => {
           {menus.length > 0 &&
             menus.map((menu) => (
               <li
-                className='text-white bg-red-500'
+                className='text-blue-600 font-bold bg-white'
                 key={menu.id}
                 onMouseEnter={handleSubmenuHover}
                 onMouseLeave={handleSubmenuLeave}
@@ -59,7 +59,7 @@ const Navbar = () => {
                 <Link to={menu.path}>{menu.title}</Link>
                 {/* Submenu */}
                 {menu?.dropdown?.length > 0 && isSubmenuOpen && (
-                  <ul className="p-2 bg-red-500 text-white absolute top-full left-20 z-[1]">
+                  <ul className="p-2 text-blue-600 font-bold bg-white absolute top-full left-20 z-[1]">
                     {menu?.dropdown?.map((dropdownMenu) => (
                       <li className="" key={dropdownMenu.id}>
                         <Link to={dropdownMenu.path}>{dropdownMenu.title}</Link>
@@ -89,7 +89,7 @@ const Navbar = () => {
         {menus.length > 0 &&
           menus.map((menu) => (
             <li
-              className='text-white bg-red-500 relative'
+              className='text-white text-lg relative'
                 key={menu.id}
                 onMouseEnter={() => setHoveredItem(menu.id)}
                 onMouseLeave={() => setHoveredItem(null)}
@@ -98,11 +98,11 @@ const Navbar = () => {
               {/* Submenu */}
               {menu?.dropdown?.length > 0 && isHovered && hoveredItem === menu.id && (
                 <ul
-                  className="p-2 bg-red-500 text-white absolute top-full left-1 z-[1]"
+                  className="p-2 text-blue-600 font-bold bg-white absolute top-full left-1 z-[1]"
                   style={{ width: "200px" }}
                 >
                   {menu?.dropdown?.map((dropdownMenu) => (
-                    <li className="" key={dropdownMenu.id}>
+                    <li className="text-blue-600 font-bold bg-white" key={dropdownMenu.id}>
                       <Link to={dropdownMenu.path}>{dropdownMenu.title}</Link>
                     </li>
                   ))}
