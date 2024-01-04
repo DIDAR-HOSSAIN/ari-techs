@@ -1,6 +1,31 @@
 import React from "react";
+import axios from "axios";
 
 const Contact = () => {
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const phone = form.phone.value;
+        const inquiry = form.inquiry.value;
+
+        try {
+            const response = await axios.post("/api/contact", {
+                name,
+                email,
+                phone,
+                inquiry,
+            });
+
+            console.log(response.data); // You can handle the response as needed
+        } catch (error) {
+            console.error("Error sending data:", error);
+        }
+    };
+
+
     return (
         <>
             <div className="grid gap-4 grid-cols-1 lg:grid-cols-2 place-items-center">
@@ -20,21 +45,24 @@ const Contact = () => {
                 {/* Right column */}
                 <div className="mt-4 lg:mt-0 w-full">
                     <h1 className='text-4xl font-bold text-center text-blue-600/100 my-8'>Contact Us</h1>
-                    <form className="bg-gray-100 p-6">
+                    <form  onSubmit={handleSubmit} className="bg-gray-100 p-6">
                         {/* Your form inputs go here */}
                         <input
                             className="w-full mb-4 p-2 rounded-md"
+                            name="name"
                             type="text"
                             placeholder="Full Name"
                         />
                         <div className="flex flex-col lg:flex-row lg:gap-4">
                             <input
                                 className="w-full lg:w-1/2 mb-4 p-2 rounded-md"
+                                name="email"
                                 type="email"
                                 placeholder="Email"
                             />
                             <input
                                 className="w-full lg:w-1/2 mb-4 p-2 rounded-md"
+                                name="phone"
                                 type="text"
                                 placeholder="Phone Number"
                             />
@@ -42,6 +70,7 @@ const Contact = () => {
                         <textarea
                             className="w-full mb-4 p-2 rounded-md"
                             rows="4"
+                            name="inquiry"
                             placeholder="What is your inquiry about?"
                         ></textarea>
                         <button className="bg-blue-500 text-white py-2 px-4 w-full rounded-md hover:bg-blue-600">

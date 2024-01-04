@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,6 +29,8 @@ Route::get('/', function () {
 Route::get('/users', function () {
     return Inertia::render('Users/User');
 });
+
+Route::post('api/contact', [ContactController::class, 'store']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
