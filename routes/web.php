@@ -17,6 +17,10 @@ use Inertia\Inertia;
 |
 */
 
+Route::resource('contact', ContactController::class);
+// Route::post('/api/contact', [ContactController::class, 'store']);
+// Route::post('/contact', 'ContactController@store');
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -30,7 +34,7 @@ Route::get('/users', function () {
     return Inertia::render('Users/User');
 });
 
-Route::post('api/contact', [ContactController::class, 'store']);
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -42,4 +46,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axiosApi from "./axios";
 
 const Contact = () => {
 
@@ -12,7 +12,7 @@ const Contact = () => {
         const inquiry = form.inquiry.value;
 
         try {
-            const response = await axios.post("/api/contact", {
+            const response = await axiosApi.post("/contact", {
                 name,
                 email,
                 phone,
@@ -24,6 +24,7 @@ const Contact = () => {
             console.error("Error sending data:", error);
         }
     };
+
 
 
     return (

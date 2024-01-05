@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
@@ -29,21 +30,18 @@ class ContactController extends Controller
      */
     public function store(StoreContactRequest $request)
     {
-        {
-            $validatedData = $request->validate([
-                'name' => 'required|string',
-                'email' => 'required|email',
-                'phone' => 'required|string',
-                'inquiry' => 'required|string',
-            ]);
-    
-            // Store data in the database
-            $contact = Contact::create($validatedData);
-    
-            return response()->json(['message' => 'Data received successfully', 'contact' => $contact], 201);
-        }
-    
+        Validator::make($request->all(), [
+            'name' => ['required'],
+            'email' => ['required'],
+            'phone' => ['required'],
+            'inquiry' => ['required'],
+        ])->validate();
+
+        Contact::create($request->all());
+
+        return redirect()->route('');
     }
+    
 
     /**
      * Display the specified resource.
