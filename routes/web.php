@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PostController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -18,6 +19,7 @@ use Inertia\Inertia;
 */
 
 Route::resource('contact', ContactController::class);
+Route::resource('items', PostController::class);
 // Route::post('/api/contact', [ContactController::class, 'store']);
 // Route::post('/contact', 'ContactController@store');
 

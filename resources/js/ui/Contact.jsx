@@ -48,6 +48,7 @@ const Contact = () => {
                     <h1 className='text-4xl font-bold text-center text-blue-600/100 my-8'>Contact Us</h1>
                     <form  onSubmit={handleSubmit} className="bg-gray-100 p-6">
                         {/* Your form inputs go here */}
+                        
                         <input
                             className="w-full mb-4 p-2 rounded-md"
                             name="name"
