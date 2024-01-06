@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
 
 class PostController extends Controller
@@ -30,10 +31,10 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        Validator::make($request->all(), [
-            'name' => ['required'],
-            'description' => ['required'],
-        ])->validate();
+        $data = request()->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
    
         Post::create($request->all());
     

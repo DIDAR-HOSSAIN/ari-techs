@@ -29,6 +29,9 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => false,
+    'allowed_origins' => [env('FRONTEND_URL')],
+    
+    'supports_credentials' => true,
+
 
 ];

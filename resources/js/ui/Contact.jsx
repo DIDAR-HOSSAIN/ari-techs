@@ -1,30 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import axiosApi from "./axios";
 
 const Contact = () => {
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const form = event.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const phone = form.phone.value;
-        const inquiry = form.inquiry.value;
+       const [successMessage, setSuccessMessage] = useState("");
 
-        try {
-            const response = await axiosApi.post("/contact", {
-                name,
-                email,
-                phone,
-                inquiry,
-            });
+       const handleSubmit = async (event) => {
+           event.preventDefault();
+           const form = event.target;
+           const name = form.name.value;
+           const email = form.email.value;
+           const phone = form.phone.value;
+           const inquiry = form.inquiry.value;
 
-            console.log(response.data); // You can handle the response as needed
-        } catch (error) {
-            console.error("Error sending data:", error);
-        }
-    };
+           try {
+               const response = await axiosApi.post("/contact", {
+                   name,
+                   email,
+                   phone,
+                   inquiry,
+               });
 
+               console.log(response.data); // You can handle the response as needed
+               setSuccessMessage("Operation Successful!");
+               form.reset(); // Reset the form fields
+               setTimeout(() => {
+                   setSuccessMessage("");
+               }, 5000);
+           } catch (error) {
+               console.error("Error sending data:", error);
+           }
+       };
 
 
     return (
@@ -32,23 +38,44 @@ const Contact = () => {
             <div className="grid gap-4 grid-cols-1 lg:grid-cols-2 place-items-center">
                 {/* Left column */}
                 <div className="text-center lg:text-left">
-                    <h1 className='text-4xl font-bold text-center text-blue-600/100 my-8'>Why Choose Our IT Services?</h1>
+                    <h1 className="text-4xl font-bold text-center text-blue-600/100 my-8">
+                        Why Choose Our IT Services?
+                    </h1>
                     <h2 className="text-3xl font-bold">Grow your business</h2>
-                    <p className="mt-4">Focus on scalling and expanding your business, while we take care of your IT needs and network requirments.</p>
+                    <p className="mt-4">
+                        Focus on scalling and expanding your business, while we
+                        take care of your IT needs and network requirments.
+                    </p>
 
-                    <h2 className="text-3xl font-bold mt-4">Streamline Processes</h2>
-                    <p className="mt-4">Increase productivity and performance of your organization when you have a dedicated IT support team by your side.</p>
+                    <h2 className="text-3xl font-bold mt-4">
+                        Streamline Processes
+                    </h2>
+                    <p className="mt-4">
+                        Increase productivity and performance of your
+                        organization when you have a dedicated IT support team
+                        by your side.
+                    </p>
 
-                    <h2 className="text-3xl font-bold mt-4">Empowering your people</h2>
-                    <p className="mt-4">Allow your employees to do more and focus on their jobs, without being held back by tech issues and concerns.</p>
+                    <h2 className="text-3xl font-bold mt-4">
+                        Empowering your people
+                    </h2>
+                    <p className="mt-4">
+                        Allow your employees to do more and focus on their jobs,
+                        without being held back by tech issues and concerns.
+                    </p>
                 </div>
 
                 {/* Right column */}
                 <div className="mt-4 lg:mt-0 w-full">
-                    <h1 className='text-4xl font-bold text-center text-blue-600/100 my-8'>Contact Us</h1>
-                    <form  onSubmit={handleSubmit} className="bg-gray-100 p-6">
+                    <h1 className="text-4xl font-bold text-center text-blue-600/100 my-8">
+                        Contact Us
+                    </h1>
+                    {successMessage && (
+                        <p className="text-green-600 text-center">{successMessage}</p>
+                    )}
+                    <form onSubmit={handleSubmit} className="bg-gray-100 p-6">
                         {/* Your form inputs go here */}
-                        
+
                         <input
                             className="w-full mb-4 p-2 rounded-md"
                             name="name"

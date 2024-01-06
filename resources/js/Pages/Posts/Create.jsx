@@ -1,64 +1,56 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import { useForm } from '@inertiajs/react';
+import React from 'react';
 
 const ItemForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    description: '',
-  });
-
-  const handleChange = e => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-// Check if token is retrieved properly
-console.log('CSRF Token:', token);
-
-// Include the token in Axios request
-axios.post('/items', formData, {
-    headers: {
-        'X-CSRF-TOKEN': token,
-    },
-})
-.then(response => {
-    // Handle response
-})
-.catch(error => {
-    // Handle error
+const { data, setData, post, processing, errors, reset } = useForm({
+    name: "",
+    description: "",
 });
-  };
+
+const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+        await post(route("items.store"));
+    } catch (error) {
+        if (error.response.status === 403) {
+            // Handle 403 Forbidden error, maybe show an error message
+            console.error(
+                "Unauthorized action: You don't have permission to perform this action."
+            );
+        } else {
+            // Handle other errors
+            console.error("An error occurred:", error.message);
+        }
+    }
+};
+
+
 
   return (
-    <div id="app" data-csrf-token="{{ csrf_token() }}">
-      <h2>Create Item</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>Description:</label>
-          <textarea
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Create</button>
-      </form>
-    </div>
+      <div>
+          <h2>Create Item</h2>
+          <form onSubmit={handleSubmit}>
+              <div>
+                  <label>Name:</label>
+                  <input
+                      type="text"
+                      name="name"
+                      value={data.name}
+                      onChange={(e) => setData("name", e.target.value)}
+                  />
+              </div>
+              <div>
+                  <label>Description:</label>
+                  <textarea
+                      name="description"
+                      value={data.description}
+                      onChange={(e) => setData("description", e.target.value)}
+                  />
+              </div>
+              <button type="submit">Create</button>
+          </form>
+      </div>
   );
 };
 

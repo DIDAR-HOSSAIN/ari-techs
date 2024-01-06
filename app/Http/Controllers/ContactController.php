@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
@@ -39,7 +40,9 @@ class ContactController extends Controller
 
         Contact::create($request->all());
 
-        return redirect()->route('');
+        return Redirect::back()->with('message', 'Operation Successful !');
+        // return redirect()->route('');
+        // return redirect()->back()->withMessage('Contact saved!');
     }
     
 
