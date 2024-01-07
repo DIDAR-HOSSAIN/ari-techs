@@ -1,13 +1,13 @@
-import Carousel from '@/ui/Carousel';
-import CustomItService from '@/ui/CustomItService';
-import Fold from '@/ui/Fold';
-import Footer from '@/ui/Footer';
-import FreeEvaluation from '@/ui/FreeEvaluation';
-import Navbar from '@/ui/Navbar';
-import OurNetworkService from '@/ui/OurNetworkService';
-import WhyChooseUs from '@/ui/WhyChooseUs';
-import YourNetwork from '@/ui/YourNetwork';
-import Contact from '@/ui/contact';
+import Carousel from '@/frontend/ui/Carousel';
+import CustomItService from '@/frontend/ui/CustomItService';
+import Fold from '@/frontend/ui/Fold';
+import Footer from '@/frontend/ui/Footer';
+import FreeEvaluation from '@/frontend/ui/FreeEvaluation';
+import Navbar from '@/frontend/ui/Navbar';
+import OurNetworkService from '@/frontend/ui/OurNetworkService';
+import WhyChooseUs from '@/frontend/ui/WhyChooseUs';
+import YourNetwork from '@/frontend/ui/YourNetwork';
+import Contact from '@/frontend/ui/contact';
 import React from 'react';
 
 const Welcome = () => {

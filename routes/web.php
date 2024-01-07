@@ -18,7 +18,12 @@ use Inertia\Inertia;
 |
 */
 
+Route::get('/dashboards', function () {
+    return Inertia::render('Dashboards');
+});
+
 Route::resource('contact', ContactController::class);
+
 Route::resource('items', PostController::class);
 // Route::post('/api/contact', [ContactController::class, 'store']);
 // Route::post('/contact', 'ContactController@store');

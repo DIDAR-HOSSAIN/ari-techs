@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import image1 from '@/assets/images/slider-image/background.jpg';
 import image2 from '@/assets/images/slider-image/ladies.jpg';
 import image3 from '@/assets/images/slider-image/office.jpg';
-import '../../css/carousel.css';
+import '../../../css/carousel.css';
 
 
 const Carousel = () => {
