@@ -22,6 +22,14 @@ Route::get('/dashboards', function () {
     return Inertia::render('Dashboards');
 });
 
+Route::get('/home', function () {
+    return Inertia::render('Home');
+});
+
+Route::get('/about', function () {
+    return Inertia::render('About');
+});
+
 Route::resource('contact', ContactController::class);
 
 Route::resource('items', PostController::class);
