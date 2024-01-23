@@ -1,12 +1,14 @@
-// About.jsx
-import React from "react";
+import Layout from '@/backend/Dashboard/Layout';
+import React from 'react';;
 
 const About = () => {
     return (
-        <div>
-            <h2>About</h2>
-            {/* Your About content */}
-        </div>
+        <Layout>
+            <div>
+                <h2 className="text-2xl font-semibold mb-4">About</h2>
+                {/* Your about page content goes here */}
+            </div>
+        </Layout>
     );
 };
 

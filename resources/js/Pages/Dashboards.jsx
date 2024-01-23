@@ -1,51 +1,15 @@
-import React, { useState, useEffect } from "react";
-import Sidebar from "@/backend/Dashboard/Sidebar";
-import Header from "@/backend/Dashboard/Header";
-
-
+import Layout from "@/backend/Dashboard/Layout";
+import React from "react";
 
 const Dashboard = () => {
-    const [isOpen, setIsOpen] = useState(true); // Default: sidebar open for large devices
-
-    useEffect(() => {
-        // Check window width and set initial sidebar state
-        const handleResize = () => {
-            setIsOpen(window.innerWidth > 768); // Adjust this width as needed for large devices
-        };
-
-        handleResize(); // Set initial state
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
-    const toggleSidebar = () => {
-        setIsOpen(!isOpen);
-    };
-
-    const closeSidebar = () => {
-        setIsOpen(false);
-    };
-
     return (
-        <div className="dashboard">
-            <Header
-                isOpen={isOpen}
-                toggleSidebar={toggleSidebar}
-                closeSidebar={closeSidebar}
-            />
-            <div className="flex">
-                <Sidebar isOpen={isOpen} closeSidebar={closeSidebar} />
-                <div className="main">
-                    {/* content */}
-                </div>
+        <Layout>
+            <div>
+                <h2 className="text-2xl font-semibold mb-4">Dashboard Page</h2>
+                <p>Your Dashboard pages content goes here.</p>
             </div>
-        </div>
+        </Layout>
     );
 };
 
 export default Dashboard;
-
-

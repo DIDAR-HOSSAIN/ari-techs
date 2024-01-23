@@ -6,8 +6,16 @@ export default defineConfig({
     plugins: [
         laravel({
             input: 'resources/js/app.jsx',
-            refresh: true,
+            // refresh: true,
+            refresh: [{
+                paths: ['http://localhost:8000/help'],
+                config: {
+                    delay: 300
+                }
+            }],
         }),
         react(),
+
+        
     ],
 });

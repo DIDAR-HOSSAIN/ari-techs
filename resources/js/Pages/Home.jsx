@@ -1,23 +1,15 @@
-// Home.js
-import React from "react";
+import Layout from '@/backend/Dashboard/Layout';
+import React from 'react';
+
 
 const Home = () => {
     return (
-        <div>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            {/* Your Home content */}
-        </div>
+        <Layout>
+            <div>
+                <h2 className="text-2xl font-semibold mb-4">Home Page</h2>
+                <p>Your home page content goes here.</p>
+            </div>
+        </Layout>
     );
 };
 
