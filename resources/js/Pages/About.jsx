@@ -5,8 +5,8 @@ const About = () => {
     return (
         <Layout>
             <div>
-                <h2 className="text-2xl font-semibold mb-4">About</h2>
-                {/* Your about page content goes here */}
+            <h2 className="text-2xl font-semibold mb-4">About Page</h2>
+                <p>Your home page content goes here.</p>
             </div>
         </Layout>
     );

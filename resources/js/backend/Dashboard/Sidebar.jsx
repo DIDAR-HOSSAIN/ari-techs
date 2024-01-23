@@ -1,23 +1,11 @@
 // Sidebar.jsx
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "@inertiajs/react";
 import "./../../../css/sidebar.css"; // Import your CSS file
 
-const Sidebar = ({ isOpen, toggleSidebar }) => {
-    const [isContentVisible, setContentVisibility] = useState(true);
-
-    const handleSidebarClick = () => {
-        setContentVisibility(!isContentVisible);
-        toggleSidebar();
-    };
-
+const Sidebar = () => {
     return (
-        <div
-            className={`bg-gray-300 min-h-screen sidebar ${
-                isContentVisible ? "" : "collapsed"
-            }`}
-            onClick={handleSidebarClick}
-        >
+        <div className="bg-gray-300 min-h-screen sidebar">
             {/* Sidebar content */}
             <ul className="lg:w-64">
                 <li>

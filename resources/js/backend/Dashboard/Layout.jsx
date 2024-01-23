@@ -1,10 +1,13 @@
+// Layout.jsx
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import "./../../../css/dashboardLayout.css"; // Import your CSS file
 
 const Layout = ({ children }) => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    // Set initial state based on screen size
+    const isSidebarInitiallyOpen = window.innerWidth >= 768; // Adjust the breakpoint as needed
+    const [isSidebarOpen, setIsSidebarOpen] = useState(isSidebarInitiallyOpen);
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
@@ -12,10 +15,12 @@ const Layout = ({ children }) => {
 
     return (
         <div
-            className={`flex h-screen bg-gray-100 ${isSidebarOpen ? "" : "sidebar-collapsed"}`}
+            className={`flex h-screen bg-gray-100 ${
+                isSidebarOpen ? "" : "sidebar-collapsed"
+            }`}
         >
             {/* Sidebar */}
-            <Sidebar />
+            {isSidebarOpen && <Sidebar />}
 
             <div className="flex-1 flex flex-col overflow-hidden">
                 {/* Header with toggle button */}
