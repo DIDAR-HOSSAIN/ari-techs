@@ -4,6 +4,7 @@ import { Link } from "@inertiajs/react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import menu from "../../../../public/data/menus.json";
 import logo from "@/assets/images/Logo/logo-transparent.png";
+import UserDropdown from "@/SharedComponents/UserDropdown";
 
 const Navbar = () => {
     const { menus } = menu;
@@ -11,7 +12,6 @@ const Navbar = () => {
     // const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
     const [hoveredItem, setHoveredItem] = useState(null);
     const [hoveredMobileMenu, setHoveredMobileMenu] = useState(null);
-    const [isEndHovered, setIsEndHovered] = useState(false);
     const isLargeScreen = useMediaQuery({ minWidth: 1024 });
 
     const handleMobileMenuOpen = () => {
@@ -28,14 +28,6 @@ const Navbar = () => {
 
     const handleMobileSubmenuLeave = () => {
         setHoveredMobileMenu(null);
-    };
-
-    const handleEndMenuHover = () => {
-        setIsEndHovered(true);
-    };
-
-    const handleEndMenuLeave = () => {
-        setIsEndHovered(false);
     };
 
     return (
@@ -157,35 +149,7 @@ const Navbar = () => {
 
             {/* End Menu */}
             <div className="navbar-end relative">
-                <div
-                    tabIndex={0}
-                    role="button"
-                    className="btn btn-ghost btn-circle avatar"
-                    onMouseEnter={handleEndMenuHover}
-                    onMouseLeave={handleEndMenuLeave}
-                >
-                    <div className="w-10 rounded-full">
-                        <img
-                            alt="Tailwind CSS Navbar component"
-                            src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                        />
-                    </div>
-                    {isEndHovered && (
-                        <ul className="menu menu-sm dropdown-content absolute top-full right-0 z-[1] p-2 shadow bg-base-100 w-52">
-                            <li>
-                                <a className="justify-between">
-                                    Profile <span className="badge">New</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a>Settings</a>
-                            </li>
-                            <li>
-                                <a>Logout</a>
-                            </li>
-                        </ul>
-                    )}
-                </div>
+                <UserDropdown />
             </div>
         </div>
     );

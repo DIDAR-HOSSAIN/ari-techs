@@ -1,9 +1,11 @@
-import React from "react";
+import UserDropdown from "@/SharedComponents/UserDropdown";
 
 const Header = ({ isOpen, toggleSidebar }) => {
+
     const handleSidebarToggle = () => {
         toggleSidebar(); // Toggle sidebar
     };
+
 
     return (
         <div className="bg-gray-300 w-full">
@@ -42,8 +44,10 @@ const Header = ({ isOpen, toggleSidebar }) => {
                 <div className="flex items-center">
                     {/* Hamburger icon for mobile */}
 
-                    {/* Other elements in the header */}
-                    <div className="mr-4">User Avatar</div>
+                    {/* header user dropdown */}
+                    <div className="mr-4">
+                        <UserDropdown />
+                    </div>
                     <div>Username</div>
                 </div>
             </nav>
@@ -52,3 +56,6 @@ const Header = ({ isOpen, toggleSidebar }) => {
 };
 
 export default Header;
+
+
+
