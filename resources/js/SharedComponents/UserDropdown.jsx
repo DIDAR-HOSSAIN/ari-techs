@@ -1,3 +1,4 @@
+import { Link } from '@inertiajs/react';
 import React, { useState } from 'react';
 
 const UserDropdown = () => {
@@ -27,16 +28,14 @@ const UserDropdown = () => {
                     </div>
                     {isEndHovered && (
                         <ul className="menu menu-sm dropdown-content absolute top-full right-0 z-[1] p-2 shadow bg-base-100 w-52">
-                            <li>
-                                <a className="justify-between">
-                                    Profile <span className="badge">New</span>
-                                </a>
-                            </li>
+                          
+                                        <Link href={route('profile.edit')}>Profile</Link>
+                                        <Link href={route('logout')} method="post" as="button">
+                                            Log Out
+                                        </Link>
+                                    
                             <li>
                                 <a>Settings</a>
-                            </li>
-                            <li>
-                                <a>Logout</a>
                             </li>
                         </ul>
                     )}

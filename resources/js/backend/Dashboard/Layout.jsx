@@ -1,11 +1,11 @@
-// Layout.jsx
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import "./../../../css/dashboardLayout.css"; // Import your CSS file
 import Breadcrumbs from "@/SharedComponents/Breadcrumbs";
 
-const Layout = ({ header, children }) => {
+const Layout = ({user, header, children }) => {
+    console.log("User object in Layout:", user);
     // Set initial state based on screen size
     const isSidebarInitiallyOpen = window.innerWidth >= 768; // Adjust the breakpoint as needed
     const [isSidebarOpen, setIsSidebarOpen] = useState(isSidebarInitiallyOpen);
@@ -25,7 +25,7 @@ const Layout = ({ header, children }) => {
 
             <div className="flex-1 flex flex-col overflow-hidden">
                 {/* Header with toggle button */}
-                <Header isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+                <Header user={user} isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
                 {/* Main content */}
                 <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">

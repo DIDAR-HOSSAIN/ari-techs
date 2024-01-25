@@ -150,6 +150,7 @@ const Navbar = () => {
             {/* End Menu */}
             <div className="navbar-end relative">
                 <UserDropdown />
+                <div className="text-white text-lg">Username</div>
             </div>
         </div>
     );

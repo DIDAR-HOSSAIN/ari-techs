@@ -30,7 +30,7 @@ use Inertia\Inertia;
 //     return Inertia::render('About');
 // });
 
-Route::inertia('/dashboards', 'Dashboards');
+// Route::inertia('/dashboards', 'Dashboards');
 // Route::inertia('/about', 'About');
 Route::inertia('/home', 'Home')->name('home');
 Route::inertia('/about', 'About')->name('about');
@@ -58,9 +58,13 @@ Route::get('/users', function () {
 
 
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboards', function () {
+    return Inertia::render('Dashboards');
+})->middleware(['auth', 'verified'])->name('dashboards');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
