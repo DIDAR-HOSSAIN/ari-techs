@@ -3,9 +3,10 @@ import { Head } from '@inertiajs/react';
 import React from 'react';
 
 
-const Home = () => {
+const Home = ({ auth }) => {
     return (
         <Layout
+        user={auth.user}
         header={<h1 className="font-semibold text-xl text-gray-800 leading-tight">Home</h1>}
         >
             <Head className="text-2xl font-semibold mb-4" title="Home" />

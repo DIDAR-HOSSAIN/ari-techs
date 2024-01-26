@@ -29,10 +29,10 @@ const UserDropdown = () => {
                     {isEndHovered && (
                         <ul className="menu menu-sm dropdown-content absolute top-full right-0 z-[1] p-2 shadow bg-base-100 w-52">
                           
-                                        <Link href={route('profile.edit')}>Profile</Link>
-                                        <Link href={route('logout')} method="post" as="button">
+                                        <li><Link href={route('profile.edit')}>Profile</Link></li>
+                                        <li><Link href={route('logout')} method="post" as="button">
                                             Log Out
-                                        </Link>
+                                        </Link></li>
                                     
                             <li>
                                 <a>Settings</a>

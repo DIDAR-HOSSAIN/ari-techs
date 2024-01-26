@@ -18,30 +18,12 @@ use Inertia\Inertia;
 |
 */
 
-// Route::get('/dashboards', function () {
-//     return Inertia::render('Dashboards');
-// });
-
-// Route::get('/home', function () {
-//     return Inertia::render('Home');
-// });
-
-// Route::get('/about', function () {
-//     return Inertia::render('About');
-// });
-
-// Route::inertia('/dashboards', 'Dashboards');
-// Route::inertia('/about', 'About');
 Route::inertia('/home', 'Home')->name('home');
 Route::inertia('/about', 'About')->name('about');
-
-
 
 Route::resource('contact', ContactController::class);
 
 Route::resource('items', PostController::class);
-// Route::post('/api/contact', [ContactController::class, 'store']);
-// Route::post('/contact', 'ContactController@store');
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
