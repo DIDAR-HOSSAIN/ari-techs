@@ -7,6 +7,7 @@ use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Inertia\Inertia;
 
 class ContactController extends Controller
 {
@@ -23,7 +24,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Contact/Create');
     }
 
     /**

@@ -18,35 +18,42 @@ use Inertia\Inertia;
 |
 */
 
-Route::inertia('/home', 'Home')->name('home');
+Route::inertia('/', 'Home')->name('home');
+
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::inertia('/whoweare', 'WhoWeAre')->name('whoweare');
+
 Route::inertia('/about', 'About')->name('about');
 
 Route::resource('contact', ContactController::class);
 
 Route::resource('items', PostController::class);
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+
+
+
+
+
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
 Route::get('/users', function () {
     return Inertia::render('Users/User');
 });
 
-
-
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/dashboards', function () {
-    return Inertia::render('Dashboards');
-})->middleware(['auth', 'verified'])->name('dashboards');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

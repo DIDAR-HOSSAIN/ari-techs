@@ -6,7 +6,7 @@ import menu from "../../../../public/data/menus.json";
 import logo from "@/assets/images/Logo/logo-transparent.png";
 import UserDropdown from "@/SharedComponents/UserDropdown";
 
-const Navbar = () => {
+const Navbar = ({user}) => {
     const { menus } = menu;
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     // const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
@@ -64,7 +64,7 @@ const Navbar = () => {
                                                 handleMobileSubmenuLeave
                                             }
                                         >
-                                            <Link to={menu.path}>
+                                            <Link href={menu.path}>
                                                 {menu.title}
                                             </Link>
                                             {menu?.dropdown?.length > 0 &&
@@ -117,7 +117,7 @@ const Navbar = () => {
                                 onMouseEnter={() => setHoveredItem(menu.id)}
                                 onMouseLeave={() => setHoveredItem(null)}
                             >
-                                <Link to={menu.path}>{menu.title}</Link>
+                                <Link href={menu.path}>{menu.title}</Link>
                                 {menu?.dropdown?.length > 0 &&
                                     hoveredItem === menu.id && (
                                         <ul
@@ -150,7 +150,7 @@ const Navbar = () => {
             {/* End Menu */}
             <div className="navbar-end relative">
                 <UserDropdown />
-                <div className="text-white text-lg">Username</div>
+                {/* <div className="text-white text-lg">{user?.name}</div> */}
             </div>
         </div>
     );

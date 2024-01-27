@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
-import "./../../../css/dashboardLayout.css"; // Import your CSS file
+import "./../../../css/AdminDashboardLayout.css"; // Import your CSS file
 import Breadcrumbs from "@/SharedComponents/Breadcrumbs";
 
-const Layout = ({user, header, children }) => {
+const AdminDashboardLayout = ({user, header, children }) => {
     console.log("User object in Layout:", user);
     // Set initial state based on screen size
     const isSidebarInitiallyOpen = window.innerWidth >= 768; // Adjust the breakpoint as needed
@@ -40,4 +40,4 @@ const Layout = ({user, header, children }) => {
     );
 };
 
-export default Layout;
+export default AdminDashboardLayout;

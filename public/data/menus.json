@@ -4,20 +4,19 @@
             "id": "1",
             "title": "Home",
             "path": "/",
-            "dropdown":[]
+            "dropdown": []
         },
         {
             "id": "2",
             "title": "Who We Are",
-            "path": "/whoWeAre",
-            "dropdown":[]
+            "path": "/whoweare",
+            "dropdown": []
         },
         {
             "id": "3",
             "title": "Services",
             "path": "/",
-            "dropdown":[
-                
+            "dropdown": [
                 {
                     "id": "3.1",
                     "title": "Website Design",
@@ -59,56 +58,54 @@
                     "id": 4.1,
                     "megaMenuTitle": "Title-1",
                     "path": "/",
-                    "megaMenuItems":[
-                {
-                    "id": "3.1",
-                    "title": "Website Design",
-                    "path": "/"
-                },
-                {
-                    "id": "3.2",
-                    "title": "Logo Design",
-                    "path": "/"
-                },
-                {
-                    "id": "3.3",
-                    "title": "Software Development",
-                    "path": "/"
-                },
-                
-                {
-                    "id": "3.4",
-                    "title": "Managed IT Services",
-                    "path": "/"
-                }
+                    "megaMenuItems": [
+                        {
+                            "id": "3.1",
+                            "title": "Website Design",
+                            "path": "/"
+                        },
+                        {
+                            "id": "3.2",
+                            "title": "Logo Design",
+                            "path": "/"
+                        },
+                        {
+                            "id": "3.3",
+                            "title": "Software Development",
+                            "path": "/"
+                        },
+
+                        {
+                            "id": "3.4",
+                            "title": "Managed IT Services",
+                            "path": "/"
+                        }
                     ]
                 },
-                
+
                 {
                     "id": 4.2,
                     "megaMenuTitle": "Title-2",
                     "path": "/",
-                    "megaMenuItems":[
-                
-                {
-                    "id": "3.5",
-                    "title": "Network Design",
-                    "path": "/"
-                },
-                {
-                    "id": "3.6",
-                    "title": "IT Support",
-                    "path": "/"
-                },
-                {
-                    "id": "3.7",
-                    "title": "IT Project",
-                    "path": "/"
-                }
+                    "megaMenuItems": [
+                        {
+                            "id": "3.5",
+                            "title": "Network Design",
+                            "path": "/"
+                        },
+                        {
+                            "id": "3.6",
+                            "title": "IT Support",
+                            "path": "/"
+                        },
+                        {
+                            "id": "3.7",
+                            "title": "IT Project",
+                            "path": "/"
+                        }
                     ]
                 }
             ]
-
         },
         {
             "id": "4",
@@ -124,7 +121,7 @@
         {
             "id": "6",
             "title": "Contact",
-            "path": "/contact"
+            "path": "/contact/create"
         }
     ]
 }

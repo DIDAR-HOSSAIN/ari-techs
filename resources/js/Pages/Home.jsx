@@ -1,20 +1,26 @@
-import Layout from '@/backend/Dashboard/Layout';
-import { Head } from '@inertiajs/react';
-import React from 'react';
+import React from "react";
+import Carousel from "@/frontend/ui/Carousel";
+import CustomItService from "@/frontend/ui/CustomItService";
+import Fold from "@/frontend/ui/Fold";
+import FreeEvaluation from "@/frontend/ui/FreeEvaluation";
+import OurNetworkService from "@/frontend/ui/OurNetworkService";
+import WhyChooseUs from "@/frontend/ui/WhyChooseUs";
+import YourNetwork from "@/frontend/ui/YourNetwork";
+import Contact from "@/frontend/ui/contact";
+import FrontendLayout from "@/frontend/Layout/FrontendLayout";
 
-
-const Home = ({ auth }) => {
+const Home = () => {
     return (
-        <Layout
-        user={auth.user}
-        header={<h1 className="font-semibold text-xl text-gray-800 leading-tight">Home</h1>}
-        >
-            <Head className="text-2xl font-semibold mb-4" title="Home" />
-            <div>
-                <h2 className="text-2xl font-semibold mb-4">Home Page</h2>
-                <p>Your home page content goes here.</p>
-            </div>
-        </Layout>
+            <FrontendLayout>
+                <Carousel />
+                <OurNetworkService />
+                <Fold />
+                <WhyChooseUs />
+                <FreeEvaluation />
+                <CustomItService />
+                <YourNetwork />
+                <Contact />
+            </FrontendLayout>
     );
 };
 

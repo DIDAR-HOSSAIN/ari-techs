@@ -9,7 +9,7 @@ const Sidebar = () => {
             {/* Sidebar content */}
             <ul className="lg:w-64">
                 <li>
-                    <Link href="/dashboards">Dashboard</Link>
+                    <Link href="/admin">Dashboard</Link>
                 </li>
                 <li>
                     <Link href="/home">Home</Link>

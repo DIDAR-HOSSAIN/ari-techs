@@ -1,21 +1,39 @@
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import DashboardCard from "@/backend/Components/DashboardCard";
+import Layout from "@/backend/Dashboard/AdminDashboardLayout";
+import { Head } from "@inertiajs/react";
+import React from "react";
 
-export default function Dashboard({ auth }) {
+const AdminDashboard = ({ auth }) => {
+     const cardsData = [
+        { id: 1, title: 'Card 1', description: 'Description for Card 1', imageUrl: 'https://placekitten.com/400/300' },
+        { id: 2, title: 'Card 2', description: 'Description for Card 2', imageUrl: 'https://placekitten.com/400/301' },
+        { id: 3, title: 'Card 3', description: 'Description for Card 2', imageUrl: 'https://placekitten.com/400/301' },
+        { id: 4, title: 'Card 4', description: 'Description for Card 2', imageUrl: 'https://placekitten.com/400/301' },
+        { id: 5, title: 'Card 5', description: 'Description for Card 2', imageUrl: 'https://placekitten.com/400/301' },
+        { id: 6, title: 'Card 6', description: 'Description for Card 2', imageUrl: 'https://placekitten.com/400/301' },
+        // Add more card data as needed
+    ];
+
     return (
-        <AuthenticatedLayout
+        <Layout
             user={auth.user}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>}
+            header={
+                <h1 className="font-semibold text-xl text-gray-800 leading-tight">
+                    Dashboard
+                </h1>
+            }
         >
-            <Head className="text-2xl font-semibold mb-4" title="Dashboard" />
+            <Head title="Dashboard" />
 
-            <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">You're logged in!</div>
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 justify-center">
+                {cardsData.map(card => (
+                    <div key={card.id} className="m-2">
+                        <DashboardCard {...card} />
                     </div>
+                ))}
                 </div>
-            </div>
-        </AuthenticatedLayout>
+        </Layout>
     );
-}
+};
+
+export default AdminDashboard;

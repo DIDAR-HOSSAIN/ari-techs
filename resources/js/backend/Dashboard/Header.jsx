@@ -48,7 +48,7 @@ console.log("User object in Header:", user);
 
                     {/* header user dropdown */}
                     <div className="mr-4">
-                        <UserDropdown />
+                        <UserDropdown user={user} />
                     </div>
                     <div>{user?.name}</div>
                 </div>
