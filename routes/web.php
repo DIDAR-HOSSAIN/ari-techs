@@ -28,7 +28,7 @@ Route::inertia('/whoweare', 'WhoWeAre')->name('whoweare');
 
 Route::inertia('/about', 'About')->name('about');
 
-Route::resource('contact', ContactController::class);
+Route::resource('contacts', ContactController::class);
 
 Route::resource('items', PostController::class);
 

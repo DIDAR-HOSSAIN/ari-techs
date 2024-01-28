@@ -8,19 +8,28 @@ import WhyChooseUs from "@/frontend/ui/WhyChooseUs";
 import YourNetwork from "@/frontend/ui/YourNetwork";
 import Contact from "@/frontend/ui/contact";
 import FrontendLayout from "@/frontend/Layout/FrontendLayout";
+import { Head } from "@inertiajs/react";
 
 const Home = () => {
     return (
-            <FrontendLayout>
-                <Carousel />
-                <OurNetworkService />
-                <Fold />
-                <WhyChooseUs />
-                <FreeEvaluation />
-                <CustomItService />
-                <YourNetwork />
-                <Contact />
-            </FrontendLayout>
+        <FrontendLayout
+            header={
+                <h1 className="font-semibold text-xl text-gray-800 leading-tight">
+                    Home
+                </h1>
+            }
+        >
+            <Head title="Home" />
+            
+            <Carousel />
+            <OurNetworkService />
+            <Fold />
+            <WhyChooseUs />
+            <FreeEvaluation />
+            <CustomItService />
+            <YourNetwork />
+            <Contact />
+        </FrontendLayout>
     );
 };
 

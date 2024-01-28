@@ -1,7 +1,7 @@
-// Sidebar.jsx
 import React from "react";
 import { Link } from "@inertiajs/react";
 import "./../../../css/sidebar.css"; // Import your CSS file
+import logo from "@/assets/images/Logo/logo-transparent.png";
 
 const Sidebar = () => {
     return (
@@ -9,7 +9,12 @@ const Sidebar = () => {
             {/* Sidebar content */}
             <ul className="lg:w-64">
                 <li>
-                    <Link href="/admin">Dashboard</Link>
+                    <Link href={"/dashboard"}>
+                        <img className="h-24" src={logo} alt="" />
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/dashboard">Dashboard</Link>
                 </li>
                 <li>
                     <Link href="/home">Home</Link>

@@ -8,11 +8,14 @@ const Create = () => {
         <FrontendLayout
             header={
                 <h1 className="font-semibold text-xl text-gray-800 leading-tight">
-                    About Page
+                    Contact Page
                 </h1>
             }
         >
-            <Head className="text-2xl font-semibold mb-4" title="Contact Page" />
+            <Head
+                className="text-2xl font-semibold mb-4"
+                title="Contact Page"
+            />
             <Contact />
         </FrontendLayout>
     );
