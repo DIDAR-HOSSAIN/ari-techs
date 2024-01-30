@@ -10,9 +10,11 @@ import Contact from "@/frontend/ui/contact";
 import FrontendLayout from "@/frontend/Layout/FrontendLayout";
 import { Head } from "@inertiajs/react";
 
-const Home = () => {
+const Home = ({ auth }) => {
+    console.log("from home", auth.user);
     return (
         <FrontendLayout
+            user={auth.user}
             header={
                 <h1 className="font-semibold text-xl text-gray-800 leading-tight">
                     Home
@@ -20,7 +22,7 @@ const Home = () => {
             }
         >
             <Head title="Home" />
-            
+
             <Carousel />
             <OurNetworkService />
             <Fold />

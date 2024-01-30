@@ -1,8 +1,8 @@
 import { Link } from '@inertiajs/react';
 import React, { useState } from 'react';
 
-const UserDropdown = ({user}) => {
-    console.log("from user dropdown", user);
+const UserDropdown = ({ user }) => {
+    // console.log("from user dropdown", auth.user);
     const [isEndHovered, setIsEndHovered] = useState(false);
 
     const handleEndMenuHover = () => {
@@ -29,23 +29,36 @@ const UserDropdown = ({user}) => {
             </div>
             {isEndHovered && (
                 <ul className="menu menu-sm dropdown-content absolute top-full right-0 z-[1] p-2 shadow bg-base-100 w-52">
-                    {user? (
+                    {user ? (
                         <>
-                        <li>
-                            <Link href={route("profile.edit")}>Profile</Link>
-                        </li><li>
-                                <Link href={route("logout")} method="post" as="button">
+                            <li>
+                                <Link href={route("dashboard")}>Dashboard</Link>
+                            </li>
+                            <li>
+                                <Link href={route("profile.edit")}>
+                                    Profile
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={route("register")}>Register</Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href={route("logout")}
+                                    method="post"
+                                    as="button"
+                                >
                                     Log Out
                                 </Link>
                             </li>
-                            </>
-                    ):(
-
-                    <><li><Link href={route("login")}>Log in</Link></li><li><Link href={route("register")}>Register</Link></li></>
-                    )}  
-                   
-                                    
-
+                        </>
+                    ) : (
+                        <>
+                            <li>
+                                <Link href={route("login")}>Log in</Link>
+                            </li>
+                        </>
+                    )}
                 </ul>
             )}
         </div>

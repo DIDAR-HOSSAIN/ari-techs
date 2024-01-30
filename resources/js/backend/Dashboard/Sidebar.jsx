@@ -5,7 +5,7 @@ import logo from "@/assets/images/Logo/logo-transparent.png";
 
 const Sidebar = () => {
     return (
-        <div className="bg-gray-300 min-h-screen sidebar">
+        <div className="bg-gray-300 min-h-screen p-2">
             {/* Sidebar content */}
             <ul className="lg:w-64">
                 <li>
@@ -17,7 +17,7 @@ const Sidebar = () => {
                     <Link href="/dashboard">Dashboard</Link>
                 </li>
                 <li>
-                    <Link href="/home">Home</Link>
+                    <Link href="/contacts">Contact List</Link>
                 </li>
                 <li>
                     <Link href="/about">About</Link>

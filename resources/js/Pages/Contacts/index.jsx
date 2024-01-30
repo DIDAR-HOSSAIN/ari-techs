@@ -2,8 +2,8 @@ import AdminDashboardLayout from '@/backend/Dashboard/AdminDashboardLayout';
 import { Head, Link, usePage } from '@inertiajs/react';
 import React from 'react';
 
-const Index = (props) => {
-    const { contacts } = usePage().props;
+const Index = ({ auth, contacts }) => {
+    // const { contacts } = usePage().props;
 
     function destroy(e) {
         if (confirm("Are you sure you want to delete this user?")) {
@@ -13,8 +13,7 @@ const Index = (props) => {
 
     return (
         <AdminDashboardLayout
-            auth={props.auth}
-            errors={props.errors}
+            user={auth.user}
             header={
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
                     Contacts
@@ -44,51 +43,66 @@ const Index = (props) => {
                                             <th className="px-4 py-2">Name</th>
                                             <th className="px-4 py-2">Email</th>
                                             <th className="px-4 py-2">Phone</th>
-                                            <th className="px-4 py-2">Inquiry</th>
-                                            <th className="px-4 py-2">Action</th>
+                                            <th className="px-4 py-2">
+                                                Inquiry
+                                            </th>
+                                            <th className="px-4 py-2">
+                                                Action
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {contacts.map(({ id, name, email, phone, inquiry }, index) => (
-                                            <tr key={id}>
-                                                <td className="border px-4 py-2">
-                                                    {index + 1}
-                                                </td>
-                                                <td className="border px-4 py-2">
-                                                    {name}
-                                                </td>
-                                                <td className="border px-4 py-2">
-                                                    {email}
-                                                </td>
-                                                <td className="border px-4 py-2">
-                                                    {phone}
-                                                </td>
-                                                <td className="border px-4 py-2">
-                                                    {inquiry}
-                                                </td>
-                                                <td className="border px-4 py-2">
-                                                    <Link
-                                                        tabIndex="1"
-                                                        className="px-4 py-2 text-sm text-white bg-blue-500 rounded"
-                                                        href={route(
-                                                            "contacts.edit",
-                                                            id
-                                                        )}
-                                                    >
-                                                        Edit
-                                                    </Link>
-                                                    <button
-                                                        onClick={destroy}
-                                                        id={id}
-                                                        tabIndex="-1"
-                                                        type="button"
-                                                        className="mx-1 px-4 py-2 text-sm text-white bg-red-500 rounded"
-                                                    >
-                                                        Delete
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        ))}
+                                        {contacts.map(
+                                            (
+                                                {
+                                                    id,
+                                                    name,
+                                                    email,
+                                                    phone,
+                                                    inquiry,
+                                                },
+                                                index
+                                            ) => (
+                                                <tr key={id}>
+                                                    <td className="border px-4 py-2">
+                                                        {index + 1}
+                                                    </td>
+                                                    <td className="border px-4 py-2">
+                                                        {name}
+                                                    </td>
+                                                    <td className="border px-4 py-2">
+                                                        {email}
+                                                    </td>
+                                                    <td className="border px-4 py-2">
+                                                        {phone}
+                                                    </td>
+                                                    <td className="border px-4 py-2">
+                                                        {inquiry}
+                                                    </td>
+                                                    <td className="border px-4 py-2">
+                                                        <Link
+                                                            tabIndex="1"
+                                                            className="px-4 py-2 text-sm text-white bg-blue-500 rounded"
+                                                            href={route(
+                                                                "contacts.edit",
+                                                                id
+                                                            )}
+                                                        >
+                                                            Edit
+                                                        </Link>
+                                                        <button
+                                                            onClick={destroy}
+                                                            id={id}
+                                                            tabIndex="-1"
+                                                            type="button"
+                                                            className="mx-1 px-4 py-2 text-sm text-white bg-red-500 rounded"
+                                                        >
+                                                            Delete
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            )
+                                        )}
 
                                         {contacts.length === 0 && (
                                             <tr>
