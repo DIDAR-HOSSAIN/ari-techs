@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Users = () => {
+const AllUsers = () => {
     return (
         <div>
             <h1 className='text-4xl'>Hello World</h1>
@@ -15,4 +15,4 @@ const Users = () => {
     );
 };
 
-export default Users;
+export default AllUsers;

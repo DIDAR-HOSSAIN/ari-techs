@@ -18,7 +18,7 @@ class ContactController extends Controller
     {
         $contacts = Contact::all();
         // dd($contacts);
-        return Inertia::render('Contacts/index', ['contacts' => $contacts]);
+        return Inertia::render('Contacts/ViewList', ['contacts' => $contacts]);
         
     }
 
@@ -27,7 +27,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Contacts/Create');
+        return Inertia::render('Contacts/CreateForm');
     }
 
     /**

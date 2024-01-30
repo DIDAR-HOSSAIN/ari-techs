@@ -2,7 +2,7 @@ import AdminDashboardLayout from '@/backend/Dashboard/AdminDashboardLayout';
 import { Head, Link, usePage } from '@inertiajs/react';
 import React from 'react';
 
-const Index = ({ auth, contacts }) => {
+const ViewList = ({ auth, contacts }) => {
     // const { contacts } = usePage().props;
 
     function destroy(e) {
@@ -125,4 +125,4 @@ const Index = ({ auth, contacts }) => {
     );
 };
 
-export default Index;
+export default ViewList;

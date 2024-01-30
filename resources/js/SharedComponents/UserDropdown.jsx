@@ -1,5 +1,6 @@
 import { Link } from '@inertiajs/react';
 import React, { useState } from 'react';
+import avatar from '@/assets/images/avatar.jpg';
 
 const UserDropdown = ({ user }) => {
     // console.log("from user dropdown", auth.user);
@@ -24,7 +25,7 @@ const UserDropdown = ({ user }) => {
             <div className="w-10 rounded-full">
                 <img
                     alt="Tailwind CSS Navbar component"
-                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    src={avatar}
                 />
             </div>
             {isEndHovered && (

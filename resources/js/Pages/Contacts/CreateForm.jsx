@@ -3,7 +3,7 @@ import Contact from '@/frontend/ui/Contact';
 import { Head } from '@inertiajs/react';
 import React from 'react';
 
-const Create = () => {
+const CreateForm = () => {
     return (
         <FrontendLayout
             header={
@@ -21,4 +21,4 @@ const Create = () => {
     );
 };
 
-export default Create;
+export default CreateForm;
