@@ -21,6 +21,8 @@ use Inertia\Inertia;
 
 Route::inertia('/', 'Home')->name('home');
 
+Route::get('registers', [RegisteredUserController::class, 'index'])->middleware(['auth', 'verified'])->name('registers');
+
 Route::get('register', [RegisteredUserController::class, 'create'])->middleware(['auth', 'verified'])->name('register');
 
 Route::post('register', [RegisteredUserController::class, 'store'])->middleware(['auth', 'verified']);

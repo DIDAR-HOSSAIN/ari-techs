@@ -20,7 +20,7 @@ const Sidebar = () => {
                     <Link href="/contacts">Contact List</Link>
                 </li>
                 <li>
-                    <Link href="/about">About</Link>
+                    <Link href="/registers">User List</Link>
                 </li>
                 {/* Add more sidebar items */}
             </ul>
