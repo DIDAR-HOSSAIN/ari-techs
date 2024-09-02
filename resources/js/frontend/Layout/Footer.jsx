@@ -1,7 +1,7 @@
 import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { Link } from "@inertiajs/react";
-import logo from "@/assets/images/Logo/logo-transparent.png";
+import logo from "@/assets/images/Logo/logo-png.png";
 
 const Footer = () => {
     const redirectToExternalLink = (url) => {
@@ -9,11 +9,11 @@ const Footer = () => {
     };
 
     return (
-        <footer className="bg-blue-600 text-white py-8 text-center">
+        <footer className="bg-cyan-800 text-white text-center">
             <div className="container mx-auto px-4 flex flex-col justify-center items-center">
                 {/* Logo */}
-                <div className="mb-8 justify-center">
-                    <img className="h-24" src={logo} alt="" />
+                <div className="justify-center">
+                    <img className="h-44" src={logo} alt="" />
                 </div>
 
                 {/* First Row */}

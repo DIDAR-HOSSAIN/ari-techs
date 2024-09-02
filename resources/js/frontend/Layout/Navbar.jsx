@@ -3,7 +3,7 @@ import { useMediaQuery } from "react-responsive";
 import { Link } from "@inertiajs/react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import menu from "../../../../public/data/menus.json";
-import logo from "@/assets/images/Logo/logo-transparent.png";
+import logo from "@/assets/images/Logo/logo-png.png";
 import UserDropdown from "@/SharedComponents/UserDropdown";
 
 const Navbar = ({ user }) => {
@@ -31,7 +31,7 @@ const Navbar = ({ user }) => {
     };
 
     return (
-        <div className="navbar bg-blue-600 font-bold z-10 sticky top-0">
+        <div className="navbar h-24 bg-cyan-800 font-bold z-10 sticky top-0">
             {/* Mobile Menu */}
             <div className="navbar-start relative z-10">
                 <div className="dropdown">
@@ -101,7 +101,7 @@ const Navbar = ({ user }) => {
                 </div>
                 {isLargeScreen && (
                     <Link to={"/"}>
-                        <img className="h-24" src={logo} alt="" />
+                        <img className="h-36" src={logo} alt="" />
                     </Link>
                 )}
             </div>

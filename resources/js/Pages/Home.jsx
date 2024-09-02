@@ -1,17 +1,16 @@
 import React from "react";
-import Carousel from "@/frontend/ui/Carousel";
-import CustomItService from "@/frontend/ui/CustomItService";
-import Fold from "@/frontend/ui/Fold";
-import FreeEvaluation from "@/frontend/ui/FreeEvaluation";
-import OurNetworkService from "@/frontend/ui/OurNetworkService";
-import WhyChooseUs from "@/frontend/ui/WhyChooseUs";
-import YourNetwork from "@/frontend/ui/YourNetwork";
-import Contact from "@/frontend/ui/contact";
 import FrontendLayout from "@/frontend/Layout/FrontendLayout";
 import { Head } from "@inertiajs/react";
+import Carousel from "@/frontend/ui/Carousel";
+import OurNetworkService from "@/frontend/ui/OurNetworkService";
+import Fold from "@/frontend/ui/Fold";
+import WhyChooseUs from "@/frontend/ui/WhyChooseUs";
+import FreeEvaluation from "@/frontend/ui/FreeEvaluation";
+import CustomItService from "@/frontend/ui/CustomItService";
+import YourNetwork from "@/frontend/ui/YourNetwork";
+import Contact from "@/frontend/ui/Contact";
 
 const Home = ({ auth }) => {
-    console.log("from home", auth.user);
     return (
         <FrontendLayout
             user={auth.user}
@@ -31,6 +30,7 @@ const Home = ({ auth }) => {
             <CustomItService />
             <YourNetwork />
             <Contact />
+
         </FrontendLayout>
     );
 };
