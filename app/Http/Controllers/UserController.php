@@ -20,7 +20,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
         $users = User::with('roles')->orderBy('id', 'DESC')->paginate(15);
         return Inertia::render('User-Manage/Users/UserList', ['users' => $users]);

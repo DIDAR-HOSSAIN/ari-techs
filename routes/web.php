@@ -13,6 +13,7 @@ use App\Http\Controllers\ReferenceController;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SampleCollectionController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UserController;
 use App\Models\Thana;
 use Illuminate\Support\Facades\Route;
@@ -90,6 +91,7 @@ Route::middleware(['auth', 'check_user_status', 'check_roles:super-admin, admin,
     Route::resource('sample', SampleCollectionController::class);
     Route::get('barcode/{id}', [SampleCollectionController::class, 'barcodeGenerate'])->name('barcode');
     Route::resource('result', ResultController::class);
+    Route::resource('sliders', SliderController::class);
 });
 
 //General route
