@@ -1,8 +1,11 @@
 import React from "react";
 import { Head, useForm } from "@inertiajs/react";
 import AdminDashboardLayout from "@/backend/Dashboard/AdminDashboardLayout";
+import InputLabel from "@/Components/InputLabel";
+import InputError from "@/Components/InputError";
+import TextInput from "@/Components/TextInput";
 
-const CreateReference = ({ auth }) => {
+const CreateSlider = ({ auth }) => {
     const { data, setData, post, processing, errors } = useForm({
         slider_name: "",
         image: "",
@@ -23,83 +26,85 @@ const CreateReference = ({ auth }) => {
                 </h1>
             }
         >
-            <Head title="Create Slidr" />
-            <div className="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+            <Head title="Create Slider" />
+            <div className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
                 <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div className="p-6 bg-white border-b border-gray-200">
-                        <form onSubmit={handleSubmit}>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <form
+                            onSubmit={handleSubmit}
+                            encType="multipart/form-data"
+                        >
+                            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                                {/* Slider Name */}
                                 <div>
-                                    <label
+                                    <InputLabel
                                         htmlFor="slider_name"
-                                        className="block text-sm font-medium text-gray-700"
-                                    >
-                                        Slider Name
-                                    </label>
-                                    <input
+                                        value="Slider Name"
+                                    />
+                                    <TextInput
                                         id="slider_name"
-                                        type="text"
+                                        slider_name="slider_name"
                                         value={data.slider_name}
+                                        className="mt-1 block w-full"
+                                        autoComplete="slider_name"
+                                        isFocused={true}
                                         onChange={(e) =>
                                             setData(
                                                 "slider_name",
                                                 e.target.value
                                             )
                                         }
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                         required
                                     />
-                                    {errors.slider_name && (
-                                        <p className="mt-2 text-sm text-red-600">
-                                            {errors.slider_name}
-                                        </p>
-                                    )}
+                                    <InputError
+                                        message={errors.slider_name}
+                                        className="mt-2"
+                                    />
                                 </div>
 
+                                {/* Slider Status */}
                                 <div>
-                                    <InputLabel htmlFor="slider_status">
-                                        Slider Status:
-                                    </InputLabel>
-                                    <div className="mt-1">
+                                    <InputLabel
+                                        htmlFor="slider_status"
+                                        value="Slider Status"
+                                    />
+                                    <div className="mt-1 flex space-x-6">
                                         <label className="inline-flex items-center">
                                             <input
                                                 type="radio"
-                                                className="form-radio h-5 w-5 text-indigo-600 border-gray-300"
-                                                value="Collected"
+                                                className="form-radio h-5 w-5 text-indigo-600"
+                                                value="Active"
                                                 checked={
                                                     data.slider_status ===
-                                                    "Collected"
+                                                    "Active"
                                                 }
                                                 onChange={() =>
                                                     setData(
                                                         "slider_status",
-                                                        "Collected"
+                                                        "Active"
                                                     )
                                                 }
                                             />
-                                            <span className="ml-2">
-                                                Collected
-                                            </span>
+                                            <span className="ml-2">Active</span>
                                         </label>
-
-                                        <label className="inline-flex items-center ml-6">
+                                        <label className="inline-flex items-center">
                                             <input
                                                 type="radio"
-                                                className="form-radio h-5 w-5 text-indigo-600 border-gray-300"
-                                                value="Not Collected"
+                                                className="form-radio h-5 w-5 text-indigo-600"
+                                                value="InActive"
                                                 checked={
                                                     data.slider_status ===
-                                                    "Not Collected"
+                                                    "InActive"
                                                 }
                                                 onChange={() =>
                                                     setData(
                                                         "slider_status",
-                                                        "Not Collected"
+                                                        "InActive"
                                                     )
                                                 }
                                             />
                                             <span className="ml-2">
-                                                Not Collected
+                                                Inactive
                                             </span>
                                         </label>
                                     </div>
@@ -109,14 +114,16 @@ const CreateReference = ({ auth }) => {
                                     />
                                 </div>
 
-                                <div>
+                                {/* Slider Image */}
+                                <div className="col-span-1 sm:col-span-2">
                                     <InputLabel
                                         htmlFor="image"
-                                        value="Image 1"
+                                        value="Slider Image"
                                     />
                                     <input
                                         type="file"
                                         name="image"
+                                        className="mt-2 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer focus:outline-none"
                                         onChange={(e) =>
                                             setData("image", e.target.files[0])
                                         }
@@ -126,15 +133,16 @@ const CreateReference = ({ auth }) => {
                                         className="mt-2"
                                     />
                                 </div>
-                                
                             </div>
+
+                            {/* Submit Button */}
                             <div className="mt-6">
                                 <button
                                     type="submit"
                                     disabled={processing}
-                                    className="inline-flex items-center px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring focus:ring-indigo-200 active:bg-indigo-600 disabled:opacity-25 transition ease-in-out duration-150"
+                                    className="inline-flex justify-center w-full items-center px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-200 active:bg-indigo-600 disabled:opacity-25 transition ease-in-out duration-150"
                                 >
-                                    {processing ? "Creating..." : "Create"}
+                                    {processing ? "Creating..." : "Submit"}
                                 </button>
                             </div>
                         </form>
@@ -145,4 +153,4 @@ const CreateReference = ({ auth }) => {
     );
 };
 
-export default CreateReference;
+export default CreateSlider;

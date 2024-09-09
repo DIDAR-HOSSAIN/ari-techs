@@ -2,26 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
+use App\Http\Requests\StoreServiceRequest;
+use App\Http\Requests\UpdateServiceRequest;
 
-use App\Models\Slider;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Inertia\Inertia;
-
-class HomeController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $sliders = Slider::where('slider_status', 'Active')->get();
-        // return response()->json($sliders);
-        // dd($sliders); // This will output the fetched slider data to ensure it is being retrieved
-
-        return inertia('Home', ['sliders' => $sliders]);
+        //
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -34,7 +27,7 @@ class HomeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreServiceRequest $request)
     {
         //
     }
@@ -42,7 +35,7 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Service $service)
     {
         //
     }
@@ -50,7 +43,7 @@ class HomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Service $service)
     {
         //
     }
@@ -58,7 +51,7 @@ class HomeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateServiceRequest $request, Service $service)
     {
         //
     }
@@ -66,9 +59,8 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Service $service)
     {
         //
     }
-
 }

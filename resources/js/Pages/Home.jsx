@@ -10,7 +10,8 @@ import CustomItService from "@/frontend/ui/CustomItService";
 import YourNetwork from "@/frontend/ui/YourNetwork";
 import Contact from "@/frontend/ui/Contact";
 
-const Home = ({ auth }) => {
+const Home = ({ auth, sliders }) => {
+    console.log("sliders", sliders);
     return (
         <FrontendLayout
             user={auth.user}
@@ -21,8 +22,7 @@ const Home = ({ auth }) => {
             }
         >
             <Head title="Home" />
-
-            <Carousel />
+            <Carousel sliders={sliders} />
             <OurNetworkService />
             <Fold />
             <WhyChooseUs />
@@ -30,7 +30,6 @@ const Home = ({ auth }) => {
             <CustomItService />
             <YourNetwork />
             <Contact />
-
         </FrontendLayout>
     );
 };

@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateSliderRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
@@ -22,8 +23,7 @@ class SliderController extends Controller
         $startDate = $request->input('start_date');
         $endDate = $request->input('end_date');
 
-        // $query = Result::query();
-        $query = Slider::all();
+        $query = Slider::query();
 
         if ($startDate && $endDate) {
             // Make sure to convert the string dates to DateTime objects
@@ -34,7 +34,7 @@ class SliderController extends Controller
         }
 
         $sliders = $query->orderBy('id', 'desc')->latest()->get();
-        // dd($results);
+
 
         return Inertia::render('Slider/IndexSlider', ['sliders' => $sliders]);
     }
@@ -52,11 +52,18 @@ class SliderController extends Controller
      */
     public function store(StoreSliderRequest $request)
     {
-        $request->validate([
-            'slider_name' => 'required',
-            'image' => 'required',
-            'slider_status' => 'required',
-        ]);
+        try {
+            $validator = Validator::make($request->all(), [
+                'slider_name' => 'required',
+                'image' => 'required',
+                'slider_status' => 'required',
+            ]);
+
+            // Check if validation fails
+            if ($validator->fails()) {
+                // Return validation errors as JSON response
+                return back()->withErrors($validator)->withInput();
+            }
 
         $data = $request->all();
 
@@ -91,7 +98,12 @@ class SliderController extends Controller
         }
         
         Slider::create($data);
+    } catch (\Exception $e) {
+            // Handle exceptions and return appropriate error response
+            return back()->withErrors(['error' => $e->getMessage()])->withInput();
+        }
     }
+    
 
     /**
      * Display the specified resource.
@@ -114,16 +126,56 @@ class SliderController extends Controller
      */
     public function update(UpdateSliderRequest $request, Slider $slider)
     {
-        $request->validate([
-            'slider_name' => 'required',
-            'image' => 'required',
-            'slider_status' => 'required',
-        ]);
+        try {
+            $validator = Validator::make($request->all(), [
+                'slider_name' => 'required',
+                'image' => 'required',
+                'slider_status' => 'required',
+            ]);
 
-        $slider->update($request->all());
+            // Check if validation fails
+            if ($validator->fails()) {
+                // Return validation errors as JSON response
+                return back()->withErrors($validator)->withInput();
+            }
 
-        return redirect()->route('sliders.index')
-        ->with('success', 'Slider updated successfully');
+            $data = $request->all();
+
+            if ($user = Auth::user()) {
+                // Access user properties safely
+                $data['user_name'] = $user->name;
+            } else {
+                // Handle the case where there is no authenticated user
+                // For example, you could set a default value or throw an exception
+                throw new \Exception('User not authenticated');
+            }
+
+            // dd($data);
+
+            // Define the path where the images will be saved
+            $imagePath = public_path('Slider/images/');
+
+            // Check if the directory exists, if not, create it
+            if (!File::exists($imagePath)) {
+                File::makeDirectory($imagePath, 0755, true);
+            }
+
+            // Initialize ImageManager without specifying the driver
+            $manager = new ImageManager(new Driver());
+
+            // Handle image
+            if ($request->hasFile('image')) {
+                $name_gen = hexdec(uniqid()) . '.' . $request->file('image')->getClientOriginalExtension();
+                $img = $manager->read($request->file('image')->getRealPath())->resize(300, 300);
+                $img->save($imagePath . $name_gen, 80);
+                $data['image'] = 'Slider/images/' . $name_gen;
+            }
+
+            $slider->update($data);
+        } catch (\Exception $e) {
+            // Handle exceptions and return appropriate error response
+            return back()->withErrors(['error' => $e->getMessage()])->withInput();
+        }
     }
 
     /**

@@ -31,11 +31,11 @@ use Inertia\Inertia;
 */
 
 //Frontend Route
-Route::get('/', function () {
-    return Inertia::render('Home');
-})->name('home');
+// Route::get('/', function () {
+//     return Inertia::render('Home');
+// })->name('home');
 
-Route::post('/', [HomeController::class, 'index'])->name('home');
+Route::resource('/', HomeController::class);
 Route::inertia('/about', 'About')->name('about');
 Route::get('contacts/create', [ContactController::class, 'create'])->name('contacts.create');
 Route::resource('contacts', ContactController::class)->middleware(['auth', 'verified'])->except('create');
