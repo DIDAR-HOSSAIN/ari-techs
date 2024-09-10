@@ -6,16 +6,32 @@ import InputError from "@/Components/InputError";
 import TextInput from "@/Components/TextInput";
 
 const EditSlider = ({ auth, slider }) => {
+    console.log('from slider edit', slider);
     const { data, setData, put, processing, errors } = useForm({
         slider_name: slider.slider_name || "",
         image: slider.image || "",
-        slider_status: slider.slider_status || "Active",
+        slider_status: slider.slider_status || "",
     });
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        put(route("sliders.update", slider.id), data);
+
+        // Create a FormData object
+        const formData = new FormData();
+        formData.append("slider_name", data.slider_name);
+        formData.append("slider_status", data.slider_status);
+        if (data.image) {
+            formData.append("image", data.image);
+        }
+
+        // Submit the form data
+        put(route("sliders.update", slider.id), formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+        });
     };
+
 
     return (
         <AdminDashboardLayout
@@ -130,11 +146,13 @@ const EditSlider = ({ auth, slider }) => {
                                         }
                                     />
 
-                                    <img
-                                        src={`/${image}`}
-                                        alt="Preview"
-                                        className="mt-4 w-full max-w-sm h-auto object-cover rounded-md"
-                                    />
+                                    {slider.image && (
+                                        <img
+                                            src={`/${slider.image}`}
+                                            alt="Preview"
+                                            className="mt-4 w-full max-w-sm h-auto object-cover rounded-md"
+                                        />
+                                    )}
 
                                     <InputError
                                         message={errors.image}
