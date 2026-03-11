@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class SliderController extends Controller
 {
@@ -52,56 +54,19 @@ class SliderController extends Controller
      */
     public function store(StoreSliderRequest $request)
     {
-        try {
-            $validator = Validator::make($request->all(), [
-                'slider_name' => 'required',
-                'image' => 'required',
-                'slider_status' => 'required',
-            ]);
+        $slider = $request->all();
 
-            // Check if validation fails
-            if ($validator->fails()) {
-                // Return validation errors as JSON response
-                return back()->withErrors($validator)->withInput();
-            }
-
-        $data = $request->all();
-
-        if ($user = Auth::user()) {
-            // Access user properties safely
-            $data['user_name'] = $user->name;
-        } else {
-            // Handle the case where there is no authenticated user
-            // For example, you could set a default value or throw an exception
-            throw new \Exception('User not authenticated');
+        if ($image = $request->file('image')) {
+            $destinationPath = 'images/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $slider['image'] = "$profileImage";
         }
 
-        // dd($data);
+        Slider::create($slider);
 
-        // Define the path where the images will be saved
-        $imagePath = public_path('Slider/images/');
-
-        // Check if the directory exists, if not, create it
-        if (!File::exists($imagePath)) {
-            File::makeDirectory($imagePath, 0755, true);
-        }
-
-        // Initialize ImageManager without specifying the driver
-        $manager = new ImageManager(new Driver());
-
-        // Handle image
-        if ($request->hasFile('image')) {
-            $name_gen = hexdec(uniqid()) . '.' . $request->file('image')->getClientOriginalExtension();
-            $img = $manager->read($request->file('image')->getRealPath())->resize(300, 300);
-            $img->save($imagePath . $name_gen, 80);
-            $data['image'] = 'Slider/images/' . $name_gen;
-        }
-        
-        Slider::create($data);
-    } catch (\Exception $e) {
-            // Handle exceptions and return appropriate error response
-            return back()->withErrors(['error' => $e->getMessage()])->withInput();
-        }
+        return redirect()->route('sliders.index')
+        ->with('success', 'Slider created successfully.');
     }
     
 
@@ -118,8 +83,12 @@ class SliderController extends Controller
      */
     public function edit(Slider $slider)
     {
-        // dd($slider);
-        return Inertia::render('Slider/EditSlider', ['slider' => $slider]);
+        // return Inertia::render('Slider/EditSlider', [
+        //     'slider' => $slider
+        // ]);
+
+        return view('sliderEdit', compact('slider'));
+        // return Inertia::render('Slider/EditSlider', compact('slider'));
     }
 
     /**
@@ -127,48 +96,47 @@ class SliderController extends Controller
      */
     public function update(UpdateSliderRequest $request, Slider $slider)
     {
-        try {
-            // Collect all data except image
-            $data = $request->except('image');
+        // Validate the request data
+        $validatedData = $request->validate([
+            'slider_name' => 'nullable|string|max:255',
+            'status' => 'nullable|in:0,1',  // Ensure status is 0 or 1
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
-            // Define the path where the images will be saved
-            $imagePath = public_path('Slider/images/');
+        // Set a default value for 'status' if it's missing in the request
+        $status = $request->input('status', $slider->status);  // Keep current status if not provided
 
-            // Check if the directory exists, if not, create it
-            if (!File::exists($imagePath)) {
-                File::makeDirectory($imagePath, 0755, true);
-            }
+        // Update slider fields
+        $slider->update([
+            'slider_name' => $validatedData['slider_name'] ?? $slider->slider_name,
+            'status' => $status
+        ]);
 
-            // Initialize ImageManager
-            $manager = new ImageManager(new Driver());
-
-            // Handle image
-            if ($request->hasFile('image')) {
-                // Delete the old image if exists
-                if ($slider->image && File::exists(public_path($slider->image))) {
-                    File::delete(public_path($slider->image));
+        // Handle image update if an image is provided
+        if ($request->hasFile('image')) {
+            // Delete the old image if it exists
+            if ($slider->image) {
+                // Delete old image from public/slider_images folder
+                if (file_exists(public_path('slider_images/' . $slider->image))) {
+                    unlink(public_path('slider_images/' . $slider->image));
                 }
-
-                // Process the new image
-                $name_gen = hexdec(uniqid()) . '.' . $request->file('image')->getClientOriginalExtension();
-                $img = $manager->read($request->file('image')->getRealPath())->resize(300, 300);
-                $img->save($imagePath . $name_gen, 80);
-                $data['image'] = 'Slider/images/' . $name_gen;
-            } else {
-                // If no new image is uploaded, keep the old image path
-                $data['image'] = $slider->image;
             }
 
-            // Update the slider with the new data
-            $slider->update($data);
+            // Store the new image directly in the public/slider_images folder
+            $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
+            $request->file('image')->move(public_path('slider_images'), $imageName);
 
-            // Redirect back with a success message
-            return redirect()->route('sliders.index')->with('success', 'Slider updated successfully');
-        } catch (\Exception $e) {
-            return back()->withErrors(['error' => $e->getMessage()])->withInput();
+            // Update slider's image field with just the image name
+            $slider->image = $imageName;
+            $slider->save();
         }
+
+        // Redirect back with success message
+        return redirect()->route('sliders.index')->with('success', 'Slider updated successfully!');
     }
 
+
+    
     /**
      * Remove the specified resource from storage.
      */

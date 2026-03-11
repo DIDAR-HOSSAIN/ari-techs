@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::where('slider_status', 'Active')->get();
+        $sliders = Slider::where('status', 'Active')->get();
         // return response()->json($sliders);
         // dd($sliders); // This will output the fetched slider data to ensure it is being retrieved
 

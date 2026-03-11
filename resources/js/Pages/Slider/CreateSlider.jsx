@@ -9,8 +9,11 @@ const CreateSlider = ({ auth }) => {
     const { data, setData, post, processing, errors } = useForm({
         slider_name: "",
         image: "",
-        slider_status: "",
+        status: "",
+        user_name: "",
     });
+
+    console.log('slider create', data)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -43,7 +46,7 @@ const CreateSlider = ({ auth }) => {
                                     />
                                     <TextInput
                                         id="slider_name"
-                                        slider_name="slider_name"
+                                        name="slider_name"
                                         value={data.slider_name}
                                         className="mt-1 block w-full"
                                         autoComplete="slider_name"
@@ -58,58 +61,6 @@ const CreateSlider = ({ auth }) => {
                                     />
                                     <InputError
                                         message={errors.slider_name}
-                                        className="mt-2"
-                                    />
-                                </div>
-
-                                {/* Slider Status */}
-                                <div>
-                                    <InputLabel
-                                        htmlFor="slider_status"
-                                        value="Slider Status"
-                                    />
-                                    <div className="mt-1 flex space-x-6">
-                                        <label className="inline-flex items-center">
-                                            <input
-                                                type="radio"
-                                                className="form-radio h-5 w-5 text-indigo-600"
-                                                value="Active"
-                                                checked={
-                                                    data.slider_status ===
-                                                    "Active"
-                                                }
-                                                onChange={() =>
-                                                    setData(
-                                                        "slider_status",
-                                                        "Active"
-                                                    )
-                                                }
-                                            />
-                                            <span className="ml-2">Active</span>
-                                        </label>
-                                        <label className="inline-flex items-center">
-                                            <input
-                                                type="radio"
-                                                className="form-radio h-5 w-5 text-indigo-600"
-                                                value="InActive"
-                                                checked={
-                                                    data.slider_status ===
-                                                    "InActive"
-                                                }
-                                                onChange={() =>
-                                                    setData(
-                                                        "slider_status",
-                                                        "InActive"
-                                                    )
-                                                }
-                                            />
-                                            <span className="ml-2">
-                                                Inactive
-                                            </span>
-                                        </label>
-                                    </div>
-                                    <InputError
-                                        message={errors.slider_status}
                                         className="mt-2"
                                     />
                                 </div>
@@ -130,6 +81,58 @@ const CreateSlider = ({ auth }) => {
                                     />
                                     <InputError
                                         message={errors.image}
+                                        className="mt-2"
+                                    />
+                                </div>
+
+                                {/* Slider Status */}
+                                <div>
+                                    <InputLabel
+                                        htmlFor="status"
+                                        value="Slider Status"
+                                    />
+                                    <div className="mt-1 flex space-x-6">
+                                        <label className="inline-flex items-center">
+                                            <input
+                                                type="radio"
+                                                className="form-radio h-5 w-5 text-indigo-600"
+                                                value="1"
+                                                checked={
+                                                    data.status ===
+                                                    "1"
+                                                }
+                                                onChange={() =>
+                                                    setData(
+                                                        "status",
+                                                        "1"
+                                                    )
+                                                }
+                                            />
+                                            <span className="ml-2">Active</span>
+                                        </label>
+                                        <label className="inline-flex items-center">
+                                            <input
+                                                type="radio"
+                                                className="form-radio h-5 w-5 text-indigo-600"
+                                                value="0"
+                                                checked={
+                                                    data.status ===
+                                                    "0"
+                                                }
+                                                onChange={() =>
+                                                    setData(
+                                                        "status",
+                                                        "0"
+                                                    )
+                                                }
+                                            />
+                                            <span className="ml-2">
+                                                Inactive
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <InputError
+                                        message={errors.status}
                                         className="mt-2"
                                     />
                                 </div>

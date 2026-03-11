@@ -49,7 +49,7 @@ const UserDropdown = ({ user }) => {
                                     method="post"
                                     as="button"
                                 >
-                                    Log Out
+                                    Logout
                                 </Link>
                             </li>
                         </>

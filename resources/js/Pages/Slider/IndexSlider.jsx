@@ -4,9 +4,7 @@ import AdminDashboardLayout from "@/backend/Dashboard/AdminDashboardLayout";
 import { Inertia } from "@inertiajs/inertia";
 import { hasRole } from "@/backend/Utils/RoleCheck";
 
-const IndexReference = ({ auth }) => {
-    const { flash, sliders } = usePage().props;
-
+const IndexSlider = ({ auth, sliders }) => {
     function destroy(e) {
         if (confirm("Are you sure you want to delete this Slider?")) {
             Inertia.delete(route("sliders.destroy", e.currentTarget.id));
@@ -64,7 +62,7 @@ const IndexReference = ({ auth }) => {
                                             ({
                                                 id,
                                                 slider_name,
-                                                slider_status,
+                                                status,
                                                 image,
                                             }) => (
                                                 <tr key={id}>
@@ -72,13 +70,15 @@ const IndexReference = ({ auth }) => {
                                                         {slider_name}
                                                     </td>
                                                     <td className="py-2 px-4 border-b border-gray-200">
-                                                        {slider_status}
+                                                        {status === 1
+                                                            ? "Active"
+                                                            : "Inactive"}
                                                     </td>
                                                     <td className="py-2 px-4 border-b border-gray-200">
                                                         <img
-                                                            src={`/${image}`}
-                                                            alt="Slider Image"
-                                                            className="w-14 h-auto object-cover"
+                                                            src={`/slider_images/${image}`}
+                                                            alt={slider_name}
+                                                            className="h-16 w-auto object-cover"
                                                         />
                                                     </td>
                                                     <td className="py-2 px-4 border-b border-gray-200">
@@ -126,4 +126,4 @@ const IndexReference = ({ auth }) => {
     );
 };
 
-export default IndexReference;
+export default IndexSlider;

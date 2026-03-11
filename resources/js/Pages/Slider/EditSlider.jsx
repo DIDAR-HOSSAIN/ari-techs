@@ -1,181 +1,111 @@
-import React, { useState, useEffect } from "react";
-import { Head, useForm } from "@inertiajs/react";
-import AdminDashboardLayout from "@/backend/Dashboard/AdminDashboardLayout";
-import InputLabel from "@/Components/InputLabel";
-import InputError from "@/Components/InputError";
-import TextInput from "@/Components/TextInput";
+import React, { useState } from "react";
+import { Inertia } from "@inertiajs/inertia";
 
-const EditSlider = ({ auth, slider }) => {
-    console.log('from slider edit', slider);
-    const { data, setData, put, processing, errors } = useForm({
-        slider_name: slider.slider_name || "",
-        image: slider.image || "",
-        slider_status: slider.slider_status || "",
-    });
+const EditSlider = ({ slider, errors }) => {
+    const [sliderName, setSliderName] = useState(slider.slider_name);
+    const [image, setImage] = useState(null);
+    const [status, setStatus] = useState(slider.status ? true : false);
+
+    const handleImageChange = (e) => {
+        setImage(e.target.files[0]);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Create a FormData object
         const formData = new FormData();
-        formData.append("slider_name", data.slider_name);
-        formData.append("slider_status", data.slider_status);
-        if (data.image) {
-            formData.append("image", data.image);
+        formData.append("slider_name", sliderName);
+        formData.append("status", status ? 1 : 0);
+        if (image) {
+            formData.append("image", image);
         }
 
-        // Submit the form data
-        put(route("sliders.update", slider.id), formData, {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
+        Inertia.put(route("sliders.update", slider.id), formData, {
+            forceFormData: true,
+            onSuccess: () => alert("Slider updated successfully"),
+            onError: (errors) => console.log(errors),
         });
+
     };
 
 
     return (
-        <AdminDashboardLayout
-            user={auth.user}
-            header={
-                <h1 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Update Slider
-                </h1>
-            }
-        >
-            <Head title="Update Slider" />
-            <div className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
-                <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div className="p-6 bg-white border-b border-gray-200">
-                        <form
-                            onSubmit={handleSubmit}
-                            encType="multipart/form-data"
-                        >
-                            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                                {/* Slider Name */}
-                                <div>
-                                    <InputLabel
-                                        htmlFor="slider_name"
-                                        value="Slider Name"
-                                    />
-                                    <TextInput
-                                        id="slider_name"
-                                        name="slider_name"
-                                        value={data.slider_name}
-                                        className="mt-1 block w-full"
-                                        autoComplete="slider_name"
-                                        isFocused={true}
-                                        onChange={(e) =>
-                                            setData(
-                                                "slider_name",
-                                                e.target.value
-                                            )
-                                        }
-                                        required
-                                    />
-                                    <InputError
-                                        message={errors.slider_name}
-                                        className="mt-2"
-                                    />
-                                </div>
+        <div className="container mx-auto p-4">
+            <h2 className="text-2xl font-bold mb-4">Edit Slider</h2>
 
-                                {/* Slider Status */}
-                                <div>
-                                    <InputLabel
-                                        htmlFor="slider_status"
-                                        value="Slider Status"
-                                    />
-                                    <div className="mt-1 flex space-x-6">
-                                        <label className="inline-flex items-center">
-                                            <input
-                                                type="radio"
-                                                className="form-radio h-5 w-5 text-indigo-600"
-                                                value="Active"
-                                                checked={
-                                                    data.slider_status ===
-                                                    "Active"
-                                                }
-                                                onChange={() =>
-                                                    setData(
-                                                        "slider_status",
-                                                        "Active"
-                                                    )
-                                                }
-                                            />
-                                            <span className="ml-2">Active</span>
-                                        </label>
-                                        <label className="inline-flex items-center">
-                                            <input
-                                                type="radio"
-                                                className="form-radio h-5 w-5 text-indigo-600"
-                                                value="Inactive"
-                                                checked={
-                                                    data.slider_status ===
-                                                    "Inactive"
-                                                }
-                                                onChange={() =>
-                                                    setData(
-                                                        "slider_status",
-                                                        "Inactive"
-                                                    )
-                                                }
-                                            />
-                                            <span className="ml-2">
-                                                Inactive
-                                            </span>
-                                        </label>
-                                    </div>
-                                    <InputError
-                                        message={errors.slider_status}
-                                        className="mt-2"
-                                    />
-                                </div>
-
-                                {/* Slider Image */}
-                                <div className="col-span-1 sm:col-span-2">
-                                    <InputLabel
-                                        htmlFor="image"
-                                        value="Slider Image"
-                                    />
-                                    <input
-                                        type="file"
-                                        id="image"
-                                        name="image"
-                                        className="mt-2 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer focus:outline-none"
-                                        onChange={(e) =>
-                                            setData("image", e.target.files[0])
-                                        }
-                                    />
-
-                                    {slider.image && (
-                                        <img
-                                            src={`/${slider.image}`}
-                                            alt="Preview"
-                                            className="mt-4 w-full max-w-sm h-auto object-cover rounded-md"
-                                        />
-                                    )}
-
-                                    <InputError
-                                        message={errors.image}
-                                        className="mt-2"
-                                    />
-                                </div>
-                            </div>
-
-                            {/* Submit Button */}
-                            <div className="mt-6">
-                                <button
-                                    type="submit"
-                                    disabled={processing}
-                                    className="inline-flex justify-center w-full items-center px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-200 active:bg-indigo-600 disabled:opacity-25 transition ease-in-out duration-150"
-                                >
-                                    {processing ? "Updating..." : "Submit"}
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+            <form onSubmit={handleSubmit} encType="multipart/form-data">
+                <div className="mb-4">
+                    <label
+                        htmlFor="slider_name"
+                        className="block text-gray-700"
+                    >
+                        Slider Name
+                    </label>
+                    <input
+                        type="text"
+                        id="slider_name"
+                        value={sliderName}
+                        onChange={(e) => setSliderName(e.target.value)}
+                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                    />
+                    {errors.slider_name && (
+                        <span className="text-red-500 text-sm">
+                            {errors.slider_name}
+                        </span>
+                    )}
                 </div>
-            </div>
-        </AdminDashboardLayout>
+
+                <div className="mb-4">
+                    <label htmlFor="image" className="block text-gray-700">
+                        Image
+                    </label>
+                    <input
+                        type="file"
+                        id="image"
+                        name="image"
+                        onChange={handleImageChange}
+                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                    />
+                    {slider.image && (
+                        <p className="text-sm text-gray-500">
+                            Current image: {slider.image}
+                        </p>
+                    )}
+                    {errors.image && (
+                        <span className="text-red-500 text-sm">
+                            {errors.image}
+                        </span>
+                    )}
+                </div>
+
+                <div className="mb-4">
+                    <label htmlFor="status" className="block text-gray-700">
+                        Active
+                    </label>
+                    <input
+                        type="checkbox"
+                        id="status"
+                        checked={status}
+                        onChange={(e) => setStatus(e.target.checked)}
+                        className="rounded"
+                    />
+                    {errors.status && (
+                        <span className="text-red-500 text-sm">
+                            {errors.status}
+                        </span>
+                    )}
+                </div>
+
+                <div className="mt-6">
+                    <button
+                        type="submit"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    >
+                        Update Slider
+                    </button>
+                </div>
+            </form>
+        </div>
     );
 };
 

@@ -39,6 +39,7 @@ Route::resource('/', HomeController::class);
 Route::inertia('/about', 'About')->name('about');
 Route::get('contacts/create', [ContactController::class, 'create'])->name('contacts.create');
 Route::resource('contacts', ContactController::class)->middleware(['auth', 'verified'])->except('create');
+Route::resource('sliders', SliderController::class);
 
 //Super admin route
 Route::middleware(['auth', 'check_user_status', 'check_roles:super-admin'])->group(function () {
@@ -91,7 +92,8 @@ Route::middleware(['auth', 'check_user_status', 'check_roles:super-admin, admin,
     Route::resource('sample', SampleCollectionController::class);
     Route::get('barcode/{id}', [SampleCollectionController::class, 'barcodeGenerate'])->name('barcode');
     Route::resource('result', ResultController::class);
-    Route::resource('sliders', SliderController::class);
+    
+
 });
 
 //General route
