@@ -8,6 +8,7 @@ import TextInput from "@/Components/TextInput";
 const CreateSlider = ({ auth }) => {
     const { data, setData, post, processing, errors } = useForm({
         slider_name: "",
+        title: "",
         image: "",
         status: "",
         user_name: "",
@@ -65,6 +66,33 @@ const CreateSlider = ({ auth }) => {
                                     />
                                 </div>
 
+                                {/* title */}
+                                <div>
+                                    <InputLabel
+                                        htmlFor="title"
+                                        value="Title"
+                                    />
+                                    <TextInput
+                                        id="title"
+                                        name="title"
+                                        value={data.title}
+                                        className="mt-1 block w-full"
+                                        autoComplete="title"
+                                        isFocused={true}
+                                        onChange={(e) =>
+                                            setData(
+                                                "title",
+                                                e.target.value
+                                            )
+                                        }
+                                        required
+                                    />
+                                    <InputError
+                                        message={errors.title}
+                                        className="mt-2"
+                                    />
+                                </div>
+
                                 {/* Slider Image */}
                                 <div className="col-span-1 sm:col-span-2">
                                     <InputLabel
@@ -96,15 +124,15 @@ const CreateSlider = ({ auth }) => {
                                             <input
                                                 type="radio"
                                                 className="form-radio h-5 w-5 text-indigo-600"
-                                                value="1"
+                                                value="Active"
                                                 checked={
                                                     data.status ===
-                                                    "1"
+                                                    ""
                                                 }
                                                 onChange={() =>
                                                     setData(
                                                         "status",
-                                                        "1"
+                                                        "Active"
                                                     )
                                                 }
                                             />
@@ -114,15 +142,15 @@ const CreateSlider = ({ auth }) => {
                                             <input
                                                 type="radio"
                                                 className="form-radio h-5 w-5 text-indigo-600"
-                                                value="0"
+                                                value="Inactive"
                                                 checked={
                                                     data.status ===
-                                                    "0"
+                                                    "Inactive"
                                                 }
                                                 onChange={() =>
                                                     setData(
                                                         "status",
-                                                        "0"
+                                                        "Inactive"
                                                     )
                                                 }
                                             />

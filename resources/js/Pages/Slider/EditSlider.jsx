@@ -3,6 +3,7 @@ import { Inertia } from "@inertiajs/inertia";
 
 const EditSlider = ({ slider, errors }) => {
     const [sliderName, setSliderName] = useState(slider.slider_name);
+    const [title, setTitle] = useState(slider.title);
     const [image, setImage] = useState(null);
     const [status, setStatus] = useState(slider.status ? true : false);
 
@@ -15,6 +16,7 @@ const EditSlider = ({ slider, errors }) => {
 
         const formData = new FormData();
         formData.append("slider_name", sliderName);
+        formData.append("title", title);
         formData.append("status", status ? 1 : 0);
         if (image) {
             formData.append("image", image);
@@ -51,6 +53,27 @@ const EditSlider = ({ slider, errors }) => {
                     {errors.slider_name && (
                         <span className="text-red-500 text-sm">
                             {errors.slider_name}
+                        </span>
+                    )}
+                </div>
+                
+                <div className="mb-4">
+                    <label
+                        htmlFor="title"
+                        className="block text-gray-700"
+                    >
+                        Slider Name
+                    </label>
+                    <input
+                        type="text"
+                        id="title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                    />
+                    {errors.title && (
+                        <span className="text-red-500 text-sm">
+                            {errors.title}
                         </span>
                     )}
                 </div>

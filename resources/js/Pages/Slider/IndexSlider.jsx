@@ -76,7 +76,7 @@ const IndexSlider = ({ auth, sliders }) => {
                                                     </td>
                                                     <td className="py-2 px-4 border-b border-gray-200">
                                                         <img
-                                                            src={`/slider_images/${image}`}
+                                                            src={`/images/slider_images/${image}`}
                                                             alt={slider_name}
                                                             className="h-16 w-auto object-cover"
                                                         />

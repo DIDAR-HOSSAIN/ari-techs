@@ -57,7 +57,7 @@ class SliderController extends Controller
         $slider = $request->all();
 
         if ($image = $request->file('image')) {
-            $destinationPath = 'images/';
+            $destinationPath = 'images/slider_images';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $slider['image'] = "$profileImage";

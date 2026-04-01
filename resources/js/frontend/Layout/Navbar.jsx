@@ -31,9 +31,9 @@ const Navbar = ({ user }) => {
     };
 
     return (
-        <div className="navbar h-24 bg-cyan-800 font-bold z-10 sticky top-0">
+        <div className="navbar h-24 bg-cyan-800 font-bold relative z-[999] sticky top-0">
             {/* Mobile Menu */}
-            <div className="navbar-start relative z-10">
+            <div className="navbar-start relative relative z-[999]">
                 <div className="dropdown">
                     <div
                         tabIndex={0}
