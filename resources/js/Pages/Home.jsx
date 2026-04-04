@@ -6,9 +6,11 @@ import OurNetworkService from "@/frontend/ui/OurNetworkService";
 import Fold from "@/frontend/ui/Fold";
 import WhyChooseUs from "@/frontend/ui/WhyChooseUs";
 import FreeEvaluation from "@/frontend/ui/FreeEvaluation";
-import CustomItService from "@/frontend/ui/CustomItService";
 import YourNetwork from "@/frontend/ui/YourNetwork";
 import Contact from "@/frontend/ui/Contact";
+import CTASection from "@/frontend/ui/CTASection";
+import CustomITSolutions from "@/frontend/ui/CustomITSolutions";
+import ITConsulting from "@/frontend/ui/ITConsulting";
 
 const Home = ({ auth, sliders }) => {
     console.log("sliders", sliders);
@@ -24,11 +26,13 @@ const Home = ({ auth, sliders }) => {
             <Head title="Home" />
             <Carousel sliders={sliders} />
             <OurNetworkService />
-            <Fold />
+            {/* <Fold /> */}
             <WhyChooseUs />
-            <FreeEvaluation />
-            <CustomItService />
-            <YourNetwork />
+            <CTASection />
+            <CustomITSolutions />
+            <ITConsulting />
+            {/* <FreeEvaluation /> */}
+            {/* <YourNetwork /> */}
             <Contact />
         </FrontendLayout>
     );

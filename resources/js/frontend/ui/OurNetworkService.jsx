@@ -1,66 +1,107 @@
 import React from 'react';
-import servicesBg from '@/assets/images/our_network_services_bg.png';
-import service1 from '@/assets/images/services/1.png';
-import service2 from '@/assets/images/services/2.png';
-import service3 from '@/assets/images/services/3.png';
-import service4 from '@/assets/images/services/4.png';
-import service5 from '@/assets/images/services/5.png';
-import service6 from '@/assets/images/services/6.png';
-import service7 from '@/assets/images/services/7.png';
-import service8 from '@/assets/images/services/8.png';
-import service9 from '@/assets/images/services/9.png';
+import {
+  FaNetworkWired ,
+  FaTools,
+  FaShieldAlt,
+  FaWifi ,
+  FaLifeRing,
+  FaMicrochip,
+  FaCloud,
+  FaServer
+} from 'react-icons/fa';
+import { BiSupport } from "react-icons/bi";
 
 const OurNetworkService = () => {
-    return (
 
-        <>
-            <h1 className='text-4xl font-bold text-center text-blue-600/100 mt-4'>Our Network Services</h1>
-            <div className="divider divider-start"></div>
-            
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-auto mx-auto"
-                style={{
-                    backgroundImage: `url(${servicesBg})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    padding: '20px',
-                    display: 'grid',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}
+  const services = [
+    {
+      title: "Network Design & Installation",
+      description: "Custom network architecture for performance and scalability.",
+      icon: FaNetworkWired
+    },
+    {
+      title: "Network Troubleshooting",
+      description: "Fast diagnosis and resolution to minimize downtime.",
+      icon: FaTools
+    },
+    {
+      title: "Firewall Installation",
+      description: "Advanced protection against cyber threats.",
+      icon: FaShieldAlt
+    },
+    {
+      title: "WiFi Solutions",
+      description: "High-speed wireless connectivity for businesses.",
+      icon: FaWifi
+    },
+    {
+      title: "On-site Support",
+      description: "Immediate assistance for critical network issues.",
+      icon: FaLifeRing
+    },
+    {
+      title: "Hardware Upgrade",
+      description: "Optimize performance with modern hardware solutions.",
+      icon: FaMicrochip
+    },
+    {
+      title: "24/7 Monitoring",
+      description: "Continuous monitoring with instant response.",
+      icon: BiSupport
+    },
+    {
+      title: "Server Installation",
+      description: "Professional server setup and configuration.",
+      icon: FaServer
+    }
+  ];
+
+  return (
+    <section className="py-10 md:py-16 bg-gray-50">
+
+      {/* Header */}
+      <div className="text-center px-4 max-w-3xl mx-auto mb-10">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+          Our Network Services
+        </h1>
+        <p className="mt-3 text-sm sm:text-base text-gray-600">
+          Comprehensive network solutions designed to keep your business connected and secure
+        </p>
+      </div>
+
+      {/* Grid */}
+      <div className="grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 sm:px-6 md:px-10 lg:grid-cols-4 lg:px-16">
+        {services.map((service, index) => {
+          const Icon = service.icon;
+
+          return (
+            <div
+              key={index}
+              className="group relative rounded-2xl bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
             >
-                {/* Your grid items */}
-                {[
-                    { image: service1, title: 'Network Design & Installation' },
-                    { image: service2, title: 'Network Trouble-shotting' },
-                    { image: service3, title: 'Firewall Installation' },
-                    { image: service4, title: 'WIFI Solution' },
-                    { image: service5, title: 'On Site Support' },
-                    { image: service6, title: 'Aging Hardware' },
-                    { image: service7, title: 'Network Monitoring 24/7 Support' },
-                    { image: service8, title: 'Wireless Access Point Setup' },
-                    { image: service9, title: 'Server Installation' },
-                ].map((service, index) => (
-                    <div
-                        key={index}
-                        className="relative rounded-xl overflow-hidden border border-blue-600 p-4 m-2"
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            position: 'relative',
-                        }}
-                    >
-                        <img className="" src={service.image} alt={`Service ${index + 1}`} />
-                        <div className="absolute inset-0 flex items-center justify-center text-center text-white">
-                            <h2 className="text-2xl font-bold">{service.title}</h2>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </>
+              {/* Gradient Border */}
+              <div className="absolute left-0 top-0 h-1 w-full rounded-t-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
 
-    );
+              {/* Icon */}
+              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-indigo-100 transition group-hover:bg-indigo-600">
+                <Icon className="text-2xl text-indigo-600 transition group-hover:text-white" />
+              </div>
+
+              {/* Title */}
+              <h2 className="mb-2 text-center text-lg font-semibold">
+                {service.title}
+              </h2>
+
+              {/* Description */}
+              <p className="text-center text-sm leading-relaxed text-gray-600">
+                {service.description}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
 };
 
 export default OurNetworkService;
