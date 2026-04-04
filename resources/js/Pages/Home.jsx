@@ -11,6 +11,8 @@ import Contact from "@/frontend/ui/Contact";
 import CTASection from "@/frontend/ui/CTASection";
 import CustomITSolutions from "@/frontend/ui/CustomITSolutions";
 import ITConsulting from "@/frontend/ui/ITConsulting";
+import WhyChooseConsulting from "@/frontend/ui/WhyChooseConsulting";
+import AboutAritechs from "@/frontend/ui/AboutAritechs";
 
 const Home = ({ auth, sliders }) => {
     console.log("sliders", sliders);
@@ -31,6 +33,8 @@ const Home = ({ auth, sliders }) => {
             <CTASection />
             <CustomITSolutions />
             <ITConsulting />
+            <WhyChooseConsulting />
+            <AboutAritechs />
             {/* <FreeEvaluation /> */}
             {/* <YourNetwork /> */}
             <Contact />
