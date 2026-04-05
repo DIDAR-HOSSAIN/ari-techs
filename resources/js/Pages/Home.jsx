@@ -4,7 +4,6 @@ import { Head } from "@inertiajs/react";
 import Carousel from "@/frontend/ui/Carousel";
 import OurNetworkService from "@/frontend/ui/OurNetworkService";
 import Fold from "@/frontend/ui/Fold";
-import WhyChooseUs from "@/frontend/ui/WhyChooseUs";
 import FreeEvaluation from "@/frontend/ui/FreeEvaluation";
 import YourNetwork from "@/frontend/ui/YourNetwork";
 import Contact from "@/frontend/ui/Contact";
@@ -16,6 +15,7 @@ import AboutAritechs from "@/frontend/ui/AboutAritechs";
 import Certifications from "@/frontend/ui/Certifications";
 import GlobalPresence from "@/frontend/ui/GlobalPresence";
 import ContactSection from "@/frontend/ui/ContactSection";
+import WhyChoose from "@/frontend/ui/WhyChoose";
 
 const Home = ({ auth, sliders }) => {
     console.log("sliders", sliders);
@@ -32,7 +32,7 @@ const Home = ({ auth, sliders }) => {
             <Carousel sliders={sliders} />
             <OurNetworkService />
             {/* <Fold /> */}
-            <WhyChooseUs />
+            <WhyChoose />
             <CTASection />
             <CustomITSolutions />
             <ITConsulting />

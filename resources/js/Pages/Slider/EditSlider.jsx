@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Inertia } from "@inertiajs/inertia";
 
 const EditSlider = ({ slider, errors }) => {
-    const [sliderName, setSliderName] = useState(slider.slider_name);
     const [title, setTitle] = useState(slider.title);
+    const [description, setDescription] = useState(slider.description);
     const [image, setImage] = useState(null);
     const [status, setStatus] = useState(slider.status ? true : false);
 
@@ -15,8 +15,8 @@ const EditSlider = ({ slider, errors }) => {
         e.preventDefault();
 
         const formData = new FormData();
-        formData.append("slider_name", sliderName);
         formData.append("title", title);
+        formData.append("description", description);
         formData.append("status", status ? 1 : 0);
         if (image) {
             formData.append("image", image);
@@ -38,31 +38,10 @@ const EditSlider = ({ slider, errors }) => {
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <div className="mb-4">
                     <label
-                        htmlFor="slider_name"
-                        className="block text-gray-700"
-                    >
-                        Slider Name
-                    </label>
-                    <input
-                        type="text"
-                        id="slider_name"
-                        value={sliderName}
-                        onChange={(e) => setSliderName(e.target.value)}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
-                    />
-                    {errors.slider_name && (
-                        <span className="text-red-500 text-sm">
-                            {errors.slider_name}
-                        </span>
-                    )}
-                </div>
-                
-                <div className="mb-4">
-                    <label
                         htmlFor="title"
                         className="block text-gray-700"
                     >
-                        Slider Name
+                        Title
                     </label>
                     <input
                         type="text"
@@ -74,6 +53,27 @@ const EditSlider = ({ slider, errors }) => {
                     {errors.title && (
                         <span className="text-red-500 text-sm">
                             {errors.title}
+                        </span>
+                    )}
+                </div>
+                
+                <div className="mb-4">
+                    <label
+                        htmlFor="description"
+                        className="block text-gray-700"
+                    >
+                        Description
+                    </label>
+                    <input
+                        type="text"
+                        id="description"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                    />
+                    {errors.description && (
+                        <span className="text-red-500 text-sm">
+                            {errors.description}
                         </span>
                     )}
                 </div>

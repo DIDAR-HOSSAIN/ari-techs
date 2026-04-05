@@ -103,15 +103,15 @@ const ITConsulting = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="bg-gray-50">
 
       {/* Header */}
       <div className="max-w-4xl mx-auto text-center px-4 mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+        <h2 className="text-xl md:text-4xl font-bold text-gray-900">
           IT Consulting Services
         </h2>
-        <p className="mt-4 text-gray-600 text-sm md:text-base">
-          Strategic IT consulting to drive digital transformation and business growth.
+        <p className="mt-4 text-gray-600 md:text-base">
+          Strategic IT consulting to drive digital transformation, optimize operations, and accelerate business growth. Our expert consultants help you navigate complex technology decisions with confidence.
         </p>
       </div>
 
@@ -171,7 +171,7 @@ const ITConsulting = () => {
     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
       Our Consulting Process
     </h2>
-    <p className="mt-3 text-sm sm:text-base text-gray-600">
+    <p className="mt-3 lg:text-lg sm:text-base text-gray-600">
       A proven methodology that ensures successful outcomes for every consulting engagement
     </p>
   </div>
@@ -183,27 +183,27 @@ const ITConsulting = () => {
       {
         step: "01",
         title: "Discovery & Assessment",
-        desc: "Comprehensive analysis of your current IT infrastructure and business goals.",
+        desc: "Comprehensive analysis of your current IT infrastructure, processes, and business objectives.",
       },
       {
         step: "02",
         title: "Strategy Development",
-        desc: "Create tailored strategies and roadmaps based on best practices.",
+        desc: "Create tailored strategies and roadmaps based on industry best practices and your specific needs.",
       },
       {
         step: "03",
         title: "Implementation Planning",
-        desc: "Detailed execution plans with timelines and risk mitigation.",
+        desc: "Develop detailed implementation plans with timelines, resources, and risk mitigation strategies.",
       },
       {
         step: "04",
         title: "Execution Support",
-        desc: "Ongoing guidance and support during implementation.",
+        desc: "Provide ongoing guidance and support throughout the implementation process.",
       },
       {
         step: "05",
         title: "Optimization & Review",
-        desc: "Continuous monitoring and improvement for long-term success.",
+        desc: "Continuous monitoring, optimization, and strategic reviews to ensure long-term success.",
       },
     ].map((item, index) => (
       <div
@@ -212,7 +212,7 @@ const ITConsulting = () => {
       >
 
         {/* Step Number */}
-        <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-sm font-bold w-10 h-10 flex items-center justify-center rounded-full shadow-lg">
+        <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-2xl font-bold w-12 h-12 flex items-center justify-center rounded-full shadow-lg">
           {item.step}
         </div>
 

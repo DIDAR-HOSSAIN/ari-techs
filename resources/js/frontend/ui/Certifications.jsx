@@ -56,7 +56,7 @@ const Certifications = () => {
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
           Certifications & Expertise
         </h2>
-        <p className="mt-3 text-sm sm:text-base text-gray-600">
+        <p className="mt-3 lg:text-xl sm:text-base text-gray-600">
           Our team holds industry-leading certifications ensuring the highest standards of service delivery
         </p>
       </div>
@@ -73,12 +73,12 @@ const Certifications = () => {
               className={`${item.bg} rounded-2xl p-6 flex items-center gap-4 shadow-sm hover:shadow-md transition`}
             >
               {/* Icon */}
-              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow">
-                <Icon className={`${item.iconColor} text-xl`} />
+              <div className="w-20 h-20 flex items-center justify-center rounded-full bg-white shadow">
+                <Icon className={`${item.iconColor} text-4xl`} />
               </div>
 
               {/* Title */}
-              <h3 className="text-sm md:text-base font-semibold text-gray-800">
+              <h3 className="lg:text-lg md:text-base font-semibold text-gray-800">
                 {item.title}
               </h3>
             </div>

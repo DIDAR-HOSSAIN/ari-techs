@@ -90,14 +90,14 @@ const stats = [
 ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-6 bg-white">
 
       {/* Header */}
       <div className="max-w-4xl mx-auto text-center px-4 mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
           About Aritechs
         </h2>
-        <p className="mt-4 text-gray-600 text-sm md:text-base">
+        <p className="mt-4 text-gray-600 lg:text-lg md:text-base">
           We are a leading managed service provider with a global presence, delivering innovative IT solutions that empower businesses to thrive in the digital age. With offices in Bangladesh and New York, we bridge technology gaps and drive digital transformation worldwide.
         </p>
       </div>
@@ -113,8 +113,8 @@ const stats = [
         className="bg-gray-50 rounded-2xl p-6 shadow-sm text-center hover:shadow-md transition"
       >
         {/* Icon */}
-        <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center rounded-full bg-indigo-100">
-          <Icon className="text-indigo-600 text-lg" />
+        <div className="w-20 h-20 mx-auto mb-3 flex items-center justify-center rounded-full bg-indigo-100">
+          <Icon className="text-indigo-600 text-4xl" />
         </div>
 
         {/* Value */}
@@ -135,19 +135,19 @@ const stats = [
       <div className="grid md:grid-cols-2 gap-8 px-4 md:px-10 lg:px-16 mb-16">
 
         <div className="bg-indigo-50 p-6 rounded-2xl">
-          <h3 className="text-xl font-bold mb-3 text-indigo-700">
+          <h3 className="text-2xl font-bold mb-3 text-indigo-700">
             Our Mission
           </h3>
-          <p className="text-sm text-gray-700 leading-relaxed">
+          <p className="lg:text-lg text-gray-700 leading-relaxed">
             To empower businesses with reliable, secure, and innovative IT solutions that drive growth, enhance productivity, and create competitive advantages in an increasingly digital world. We are committed to being the trusted technology partner that businesses can rely on for their most critical IT needs.
           </p>
         </div>
 
         <div className="bg-purple-50 p-6 rounded-2xl">
-          <h3 className="text-xl font-bold mb-3 text-purple-700">
+          <h3 className="text-2xl font-bold mb-3 text-purple-700">
             Our Vision
           </h3>
-          <p className="text-sm text-gray-700 leading-relaxed">
+          <p className="lg:text-lg text-gray-700 leading-relaxed">
             To be the premier global managed service provider, recognized for excellence in IT solutions, innovation in technology services, and unwavering commitment to client success. We envision a future where businesses can focus entirely on their core operations while we handle all their technology needs seamlessly.
           </p>
         </div>
@@ -157,10 +157,10 @@ const stats = [
       {/* Core Values */}
       <div className="px-4 md:px-10 lg:px-16 mb-16">
         <div className="max-w-4xl mx-auto text-center px-4 mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+        <h2 className="text-2xl md:text-4xl font-bold text-gray-900">
           Our Core Values
         </h2>
-        <p className="mt-4 text-gray-600 text-sm md:text-base">
+        <p className="mt-4 text-gray-600 lg:text-lg md:text-base">
           The principles that guide everything we do and shape our relationships with clients and partners
         </p>
       </div>
@@ -174,15 +174,15 @@ const stats = [
                 key={index}
                 className="bg-gray-50 p-6 rounded-2xl text-center shadow-sm hover:shadow-md transition"
               >
-                <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center rounded-full bg-indigo-100">
-                  <Icon className="text-indigo-600" />
+                <div className="w-20 h-20 mx-auto mb-3 flex items-center justify-center rounded-full bg-indigo-100">
+                  <Icon className="text-4xl text-indigo-600" />
                 </div>
 
-                <h4 className="font-semibold text-gray-800">
+                <h4 className="font-semibold lg:text-xl text-gray-800">
                   {item.title}
                 </h4>
 
-                <p className="text-sm text-gray-600 mt-2">
+                <p className="lg:text-lg text-gray-600 mt-2">
                   {item.desc}
                 </p>
               </div>
@@ -194,10 +194,10 @@ const stats = [
       {/* Team */}
       <div className="px-4 md:px-10 lg:px-16">
         <div className="max-w-4xl mx-auto text-center px-4 mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+        <h2 className="text-2xl md:text-4xl font-bold text-gray-900">
           Meet Our Leadership Team
         </h2>
-        <p className="mt-4 text-gray-600 text-sm md:text-base">
+        <p className="mt-4 text-gray-600 lg:text-xl md:text-base">
          Experienced professionals dedicated to delivering exceptional IT solutions and services
         </p>
       </div>
@@ -228,12 +228,12 @@ const stats = [
       </p>
 
       {/* Location */}
-      <p className="text-xs text-gray-500 mt-1">
+      <p className="text-sm text-gray-500 mt-1">
         {member.location}
       </p>
 
       {/* Skills */}
-      <p className="text-xs text-gray-600 mt-2 leading-relaxed">
+      <p className="text-sm text-gray-600 mt-2 leading-relaxed">
         {member.skills}
       </p>
     </div>

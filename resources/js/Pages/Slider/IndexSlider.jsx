@@ -44,7 +44,7 @@ const IndexSlider = ({ auth, sliders }) => {
                                     <thead>
                                         <tr>
                                             <th className="py-2 px-4 border-b border-gray-200 bg-gray-50 text-left text-sm font-medium text-gray-700">
-                                                Slider Name
+                                                Title
                                             </th>
                                             <th className="py-2 px-4 border-b border-gray-200 bg-gray-50 text-left text-sm font-medium text-gray-700">
                                                 Slider Status
@@ -61,23 +61,23 @@ const IndexSlider = ({ auth, sliders }) => {
                                         {sliders.map(
                                             ({
                                                 id,
-                                                slider_name,
+                                                title,
                                                 status,
                                                 image,
                                             }) => (
                                                 <tr key={id}>
                                                     <td className="py-2 px-4 border-b border-gray-200">
-                                                        {slider_name}
+                                                        {title}
                                                     </td>
                                                     <td className="py-2 px-4 border-b border-gray-200">
-                                                        {status === 1
+                                                        {status === "Active"
                                                             ? "Active"
                                                             : "Inactive"}
                                                     </td>
                                                     <td className="py-2 px-4 border-b border-gray-200">
                                                         <img
                                                             src={`/images/slider_images/${image}`}
-                                                            alt={slider_name}
+                                                            alt={image}
                                                             className="h-16 w-auto object-cover"
                                                         />
                                                     </td>

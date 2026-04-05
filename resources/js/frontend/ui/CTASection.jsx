@@ -13,7 +13,7 @@ const CTASection = () => {
         </h2>
 
         {/* Subtitle */}
-        <p className="mt-4 text-sm sm:text-base md:text-lg text-white/90">
+        <p className="mt-4 text-sm sm:text-base md:text-lg lg:text-xl text-white/90">
           Join hundreds of satisfied clients who trust Aritechs for their IT needs
         </p>
 

@@ -6,7 +6,6 @@ import {
   FaWifi ,
   FaLifeRing,
   FaMicrochip,
-  FaCloud,
   FaServer
 } from 'react-icons/fa';
 import { BiSupport } from "react-icons/bi";
@@ -64,7 +63,7 @@ const OurNetworkService = () => {
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
           Our Network Services
         </h1>
-        <p className="mt-3 text-sm sm:text-base text-gray-600">
+        <p className="mt-3 lg:text-xl sm:text-lg text-gray-600">
           Comprehensive network solutions designed to keep your business connected and secure
         </p>
       </div>
@@ -83,22 +82,29 @@ const OurNetworkService = () => {
               <div className="absolute left-0 top-0 h-1 w-full rounded-t-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
 
               {/* Icon */}
-              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-indigo-100 transition group-hover:bg-indigo-600">
-                <Icon className="text-2xl text-indigo-600 transition group-hover:text-white" />
+              <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-indigo-100 transition group-hover:bg-indigo-600">
+                <Icon className="text-4xl text-indigo-600 transition group-hover:text-white" />
               </div>
 
               {/* Title */}
-              <h2 className="mb-2 text-center text-lg font-semibold">
+              <h2 className="mb-2 text-center text-xl font-semibold">
                 {service.title}
               </h2>
 
               {/* Description */}
-              <p className="text-center text-sm leading-relaxed text-gray-600">
+              <p className="text-center text-lg leading-relaxed text-gray-600">
                 {service.description}
               </p>
             </div>
           );
         })}
+
+
+      </div>
+        <div className="text-center mt-12 px-4">
+        <button className="bg-indigo-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-indigo-700 transition">
+          Get a Network Assesment
+        </button>
       </div>
     </section>
   );

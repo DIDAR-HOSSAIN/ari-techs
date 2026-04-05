@@ -7,8 +7,8 @@ import TextInput from "@/Components/TextInput";
 
 const CreateSlider = ({ auth }) => {
     const { data, setData, post, processing, errors } = useForm({
-        slider_name: "",
         title: "",
+        description: "",
         image: "",
         status: "",
         user_name: "",
@@ -39,34 +39,7 @@ const CreateSlider = ({ auth }) => {
                             encType="multipart/form-data"
                         >
                             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                                {/* Slider Name */}
-                                <div>
-                                    <InputLabel
-                                        htmlFor="slider_name"
-                                        value="Slider Name"
-                                    />
-                                    <TextInput
-                                        id="slider_name"
-                                        name="slider_name"
-                                        value={data.slider_name}
-                                        className="mt-1 block w-full"
-                                        autoComplete="slider_name"
-                                        isFocused={true}
-                                        onChange={(e) =>
-                                            setData(
-                                                "slider_name",
-                                                e.target.value
-                                            )
-                                        }
-                                        required
-                                    />
-                                    <InputError
-                                        message={errors.slider_name}
-                                        className="mt-2"
-                                    />
-                                </div>
-
-                                {/* title */}
+                                {/* Title Name */}
                                 <div>
                                     <InputLabel
                                         htmlFor="title"
@@ -89,6 +62,33 @@ const CreateSlider = ({ auth }) => {
                                     />
                                     <InputError
                                         message={errors.title}
+                                        className="mt-2"
+                                    />
+                                </div>
+
+                                {/* description */}
+                                <div>
+                                    <InputLabel
+                                        htmlFor="description"
+                                        value="Description"
+                                    />
+                                    <TextInput
+                                        id="description"
+                                        name="description"
+                                        value={data.description}
+                                        className="mt-1 block w-full"
+                                        autoComplete="description"
+                                        isFocused={true}
+                                        onChange={(e) =>
+                                            setData(
+                                                "description",
+                                                e.target.value
+                                            )
+                                        }
+                                        required
+                                    />
+                                    <InputError
+                                        message={errors.description}
                                         className="mt-2"
                                     />
                                 </div>

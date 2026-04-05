@@ -51,15 +51,25 @@ const Carousel = ({ sliders = [] }) => {
 
               {/* Header */}
               <h1 className="max-w-[95%] text-2xl font-bold leading-tight drop-shadow-lg sm:text-3xl md:max-w-[80%] md:text-5xl lg:text-6xl">
-                {slide.slider_name}
+                {slide.title}
               </h1>
 
               {/* Description */}
               {slide.title && (
-                <p className="max-w-[90%] text-xs leading-relaxed opacity-90 sm:text-sm md:max-w-[75%] md:text-base lg:text-lg">
-                  {slide.title}
+                <p className="max-w-[90%] text-xs leading-relaxed opacity-90 sm:text-sm md:max-w-[75%] md:text-base lg:text-2xl font-serif">
+                  {slide.description}
                 </p>
               )}
+
+              {/* ✅ Button Added Here */}
+              
+                <a
+                  href={slide.button_link || "#"}
+                  className="mt-3 inline-block bg-indigo-600 text-white px-5 py-2 text-xs sm:text-sm md:text-base font-medium rounded-full shadow-lg hover:bg-indigo-700 transition"
+                >
+                  Learn More
+                </a>
+              
             </div>
           </div>
         ))}

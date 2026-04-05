@@ -34,7 +34,7 @@ const GlobalPresence = () => {
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
           Our Global Presence
         </h2>
-        <p className="mt-3 text-sm sm:text-base text-gray-600">
+        <p className="mt-3 lg:text-xl sm:text-base text-gray-600">
           Strategically located to serve clients across different time zones and regions
         </p>
       </div>

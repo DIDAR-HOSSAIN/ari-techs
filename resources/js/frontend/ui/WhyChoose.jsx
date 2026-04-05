@@ -35,14 +35,14 @@ const WhyChoose = () => {
   ];
 
   return (
-    <section className="bg-white py-12 md:py-16">
+    <section className="bg-white py-6">
 
       {/* Header */}
       <div className="text-center px-4 max-w-3xl mx-auto mb-12">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
           Why Choose Aritechs?
         </h1>
-        <p className="mt-3 text-sm sm:text-base text-gray-600">
+        <p className="mt-3 text-sm sm:text-base lg:text-xl text-gray-600">
           We deliver reliable, scalable, and secure IT solutions that drive business growth
         </p>
       </div>
@@ -58,35 +58,23 @@ const WhyChoose = () => {
               className="group bg-gray-50 p-6 rounded-2xl text-center shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2"
             >
               {/* Icon */}
-              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-indigo-100 group-hover:bg-indigo-600 transition">
-                <Icon className="text-2xl text-indigo-600 group-hover:text-white transition" />
+              <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-indigo-100 group-hover:bg-indigo-600 transition">
+                <Icon className="text-4xl text-indigo-600 group-hover:text-white transition" />
               </div>
 
               {/* Title */}
-              <h3 className="text-lg font-semibold mb-2">
+              <h3 className="text-xl font-semibold mb-2">
                 {item.title}
               </h3>
 
               {/* Description */}
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-lg text-gray-600 leading-relaxed">
                 {item.description}
               </p>
             </div>
           );
         })}
       </div>
-
-      {/* CTA */}
-      <div className="text-center mt-12 px-4">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
-          Ready to Transform Your IT Infrastructure?
-        </h2>
-
-        <button className="bg-indigo-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-indigo-700 transition">
-          Get Started
-        </button>
-      </div>
-
     </section>
   );
 };

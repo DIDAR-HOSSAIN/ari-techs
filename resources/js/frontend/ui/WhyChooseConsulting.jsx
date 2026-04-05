@@ -38,7 +38,7 @@ const WhyChooseConsulting = () => {
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
           Why Choose Our Consulting Services?
         </h2>
-        <p className="mt-3 text-sm sm:text-base text-gray-600">
+        <p className="mt-3 lg:text-lg sm:text-base text-gray-600">
           Partner with experienced consultants who understand both technology and business
         </p>
       </div>
@@ -55,8 +55,8 @@ const WhyChooseConsulting = () => {
               className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 text-center"
             >
               {/* Icon */}
-              <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-indigo-100">
-                <Icon className="text-indigo-600 text-xl" />
+              <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center rounded-full bg-indigo-100">
+                <Icon className="text-indigo-600 text-4xl" />
               </div>
 
               {/* Title */}
