@@ -13,6 +13,9 @@ import CustomITSolutions from "@/frontend/ui/CustomITSolutions";
 import ITConsulting from "@/frontend/ui/ITConsulting";
 import WhyChooseConsulting from "@/frontend/ui/WhyChooseConsulting";
 import AboutAritechs from "@/frontend/ui/AboutAritechs";
+import Certifications from "@/frontend/ui/Certifications";
+import GlobalPresence from "@/frontend/ui/GlobalPresence";
+import ContactSection from "@/frontend/ui/ContactSection";
 
 const Home = ({ auth, sliders }) => {
     console.log("sliders", sliders);
@@ -35,9 +38,12 @@ const Home = ({ auth, sliders }) => {
             <ITConsulting />
             <WhyChooseConsulting />
             <AboutAritechs />
+            <Certifications />
+            <GlobalPresence />
+            {/* <ContactSection /> */}
             {/* <FreeEvaluation /> */}
             {/* <YourNetwork /> */}
-            <Contact />
+            {/* <Contact /> */}
         </FrontendLayout>
     );
 };
