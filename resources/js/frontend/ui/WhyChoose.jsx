@@ -55,7 +55,7 @@ const WhyChoose = () => {
           return (
             <div
               key={index}
-              className="group bg-gray-50 p-6 rounded-2xl text-center shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2"
+              className="group p-6 text-center"
             >
               {/* Icon */}
               <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-indigo-100 group-hover:bg-indigo-600 transition">
@@ -68,7 +68,7 @@ const WhyChoose = () => {
               </h3>
 
               {/* Description */}
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-md text-gray-600 leading-relaxed">
                 {item.description}
               </p>
             </div>

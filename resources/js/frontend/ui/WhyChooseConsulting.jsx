@@ -52,7 +52,7 @@ const WhyChooseConsulting = () => {
           return (
             <div
               key={index}
-              className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 text-center"
+              className="p-6 text-center"
             >
               {/* Icon */}
               <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center rounded-full bg-indigo-100">
@@ -80,7 +80,7 @@ const WhyChooseConsulting = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-indigo-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-indigo-700 transition">
+          <button className="bg-indigo-600 text-white px-6 py-3 rounded-md shadow-md hover:bg-red-500 transition">
             Get Free Assessment
           </button>
 

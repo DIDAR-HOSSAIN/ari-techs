@@ -3,18 +3,14 @@ import FrontendLayout from "@/frontend/Layout/FrontendLayout";
 import { Head } from "@inertiajs/react";
 import Carousel from "@/frontend/ui/Carousel";
 import OurNetworkService from "@/frontend/ui/OurNetworkService";
-import FreeEvaluation from "@/frontend/ui/FreeEvaluation";
-import YourNetwork from "@/frontend/ui/YourNetwork";
-import Contact from "@/frontend/ui/Contact";
 import CTASection from "@/frontend/ui/CTASection";
-import CustomITSolutions from "@/frontend/ui/CustomITSolutions";
 import ITConsulting from "@/frontend/ui/ITConsulting";
 import WhyChooseConsulting from "@/frontend/ui/WhyChooseConsulting";
 import AboutAritechs from "@/frontend/ui/AboutAritechs";
 import Certifications from "@/frontend/ui/Certifications";
 import GlobalPresence from "@/frontend/ui/GlobalPresence";
-import ContactSection from "@/frontend/ui/ContactSection";
 import WhyChoose from "@/frontend/ui/WhyChoose";
+import ContactSection from "@/frontend/ui/ContactSection";
 
 const Home = ({ auth, sliders }) => {
     console.log("sliders", sliders);
@@ -29,19 +25,33 @@ const Home = ({ auth, sliders }) => {
         >
             <Head title="Home" />
             <Carousel sliders={sliders} />
+            <div id="services">
             <OurNetworkService />
+            </div>
+            <div id="consulting">
             <ITConsulting />
+            </div>
+            <div id="whyChoose">
             <WhyChoose />
+            </div>
+            <div id="ctaSection">
             <CTASection />
-            {/* <CustomITSolutions /> */}
+            </div>
+            <div id="chooseConsulting">
             <WhyChooseConsulting />
+            </div>
+            <div id="aboutAritechs">
             <AboutAritechs />
+            </div>
+            <div id="certification">
             <Certifications />
+            </div>
+            <div id="globalPresence">
             <GlobalPresence />
-            {/* <ContactSection /> */}
-            {/* <FreeEvaluation /> */}
-            {/* <YourNetwork /> */}
-            {/* <Contact /> */}
+            </div>
+            <div id="contactSection">
+            <ContactSection />
+            </div>
         </FrontendLayout>
     );
 };

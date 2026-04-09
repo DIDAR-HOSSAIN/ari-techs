@@ -79,7 +79,7 @@ const stats = [
     return (
       <div
         key={index}
-        className="bg-gray-50 rounded-2xl p-6 shadow-sm text-center hover:shadow-md transition"
+        className="text-center"
       >
         {/* Icon */}
         <div className="w-20 h-20 mx-auto mb-3 flex items-center justify-center rounded-full bg-indigo-100">
@@ -103,20 +103,20 @@ const stats = [
       {/* Mission & Vision */}
       <div className="grid md:grid-cols-2 gap-8 px-4 md:px-10 lg:px-16 mb-16">
 
-        <div className="bg-indigo-50 p-6 rounded-2xl">
-          <h3 className="text-2xl font-bold mb-3 text-indigo-700">
+        <div className="bg-indigo-700 p-6 rounded-2xl">
+          <h3 className="text-2xl font-bold mb-3 text-white">
             Our Mission
           </h3>
-          <p className="lg:text-lg text-gray-700 leading-relaxed">
+          <p className="lg:text-lg text-white leading-relaxed">
             To empower businesses with reliable, secure, and innovative IT solutions that drive growth, enhance productivity, and create competitive advantages in an increasingly digital world. We are committed to being the trusted technology partner that businesses can rely on for their most critical IT needs.
           </p>
         </div>
 
-        <div className="bg-purple-50 p-6 rounded-2xl">
-          <h3 className="text-2xl font-bold mb-3 text-purple-700">
+        <div className="bg-[#0d9488] p-6 rounded-2xl">
+          <h3 className="text-2xl font-bold mb-3 text-white">
             Our Vision
           </h3>
-          <p className="lg:text-lg text-gray-700 leading-relaxed">
+          <p className="lg:text-lg text-white leading-relaxed">
             To be the premier global managed service provider, recognized for excellence in IT solutions, innovation in technology services, and unwavering commitment to client success. We envision a future where businesses can focus entirely on their core operations while we handle all their technology needs seamlessly.
           </p>
         </div>
@@ -141,7 +141,7 @@ const stats = [
             return (
               <div
                 key={index}
-                className="bg-gray-50 p-6 rounded-2xl text-center shadow-sm hover:shadow-md transition"
+                className="p-6 rounded-2xl text-center"
               >
                 <div className="w-20 h-20 mx-auto mb-3 flex items-center justify-center rounded-full bg-indigo-100">
                   <Icon className="text-4xl text-indigo-600" />

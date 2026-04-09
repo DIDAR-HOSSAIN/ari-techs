@@ -110,9 +110,14 @@ const ITConsulting = () => {
         <h2 className="text-xl md:text-4xl font-bold text-gray-900">
           IT Consulting Services
         </h2>
-        <p className="mt-4 text-gray-600 md:text-base">
+        <p className="mt-4 text-gray-600 lg:text-lg md:text-base">
           Strategic IT consulting to drive digital transformation, optimize operations, and accelerate business growth. Our expert consultants help you navigate complex technology decisions with confidence.
         </p>
+        <div className="mt-12 px-4 text-center">
+        <button className="bg-indigo-600 text-white px-6 py-3 rounded-md shadow-md hover:bg-red-500 transition">
+            Schedule a Consultation
+        </button>
+        </div>
       </div>
 
       {/* Grid */}
@@ -133,16 +138,16 @@ const ITConsulting = () => {
                 {/* Icon + Title */}
                 <div className="flex items-center gap-3 mb-3">
                   <div className={`${item.iconBg} p-2 rounded-lg`}>
-                    <Icon className="text-white text-lg" />
+                    <Icon className="text-white text-xl" />
                   </div>
 
-                  <h3 className={`text-lg font-bold ${item.text}`}>
+                  <h3 className={`text-lg font-bold ${item.text} lg:text-xl`}>
                     {item.title}
                   </h3>
                 </div>
 
                 {/* Description */}
-                <p className={`text-sm ${item.text} opacity-90`}>
+                <p className={`text-sm ${item.text} opacity-90 lg:text-lg`}>
                   {item.description}
                 </p>
               </div>
@@ -151,7 +156,7 @@ const ITConsulting = () => {
               <div className="p-5">
                 <ul className="space-y-2 text-sm text-gray-700">
                   {item.points.map((point, i) => (
-                    <li key={i} className="flex gap-2">
+                    <li key={i} className="flex gap-2 lg:text-lg">
                       <span className="text-indigo-500">✔</span>
                       {point}
                     </li>
@@ -208,21 +213,21 @@ const ITConsulting = () => {
     ].map((item, index) => (
       <div
         key={index}
-        className="relative bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-xl transition duration-300"
+        className="relative p-6 text-center"
       >
 
         {/* Step Number */}
-        <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-2xl font-bold w-12 h-12 flex items-center justify-center rounded-full shadow-lg">
+        <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-2xl font-bold w-16 h-16 flex items-center justify-center rounded-full shadow-lg">
           {item.step}
         </div>
 
         {/* Content */}
-        <div className="mt-6">
+        <div className="mt-8">
           <h3 className="text-lg font-semibold text-gray-800 mb-2">
             {item.title}
           </h3>
 
-          <p className="text-sm text-gray-600 leading-relaxed">
+          <p className="text-md text-gray-600 leading-relaxed">
             {item.desc}
           </p>
         </div>

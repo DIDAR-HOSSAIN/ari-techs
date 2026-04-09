@@ -2,7 +2,7 @@ import React from "react";
 
 const CTASection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 py-14 md:py-20">
+    <section className="relative overflow-hidden bg-indigo-600 p-12">
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center text-white">
@@ -21,7 +21,7 @@ const CTASection = () => {
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
 
           {/* Primary Button */}
-          <button className="rounded-full bg-white px-6 py-3 text-sm sm:text-base font-semibold text-indigo-600 shadow-lg hover:bg-gray-100 transition">
+          <button className="rounded-md bg-white px-6 py-3 text-sm sm:text-base font-semibold text-black shadow-lg hover:bg-red-500 transition">
             Schedule Consultation
           </button>
 

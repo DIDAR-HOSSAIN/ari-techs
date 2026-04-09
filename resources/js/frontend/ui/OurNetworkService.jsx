@@ -15,42 +15,42 @@ const OurNetworkService = () => {
   const services = [
     {
       title: "Network Design & Installation",
-      description: "Custom network architecture for performance and scalability.",
+      description: "Custom network architecture designed for optimal performance and scalability.",
       icon: FaNetworkWired
     },
     {
       title: "Network Troubleshooting",
-      description: "Fast diagnosis and resolution to minimize downtime.",
+      description: "Expert diagnosis and resolution of network issues to minimize downtime.",
       icon: FaTools
     },
     {
       title: "Firewall Installation",
-      description: "Advanced protection against cyber threats.",
+      description: "Advanced security solutions to protect your network from threats.",
       icon: FaShieldAlt
     },
     {
       title: "WiFi Solutions",
-      description: "High-speed wireless connectivity for businesses.",
+      description: "High-performance wireless networks for seamless connectivity.",
       icon: FaWifi
     },
     {
       title: "On-site Support",
-      description: "Immediate assistance for critical network issues.",
+      description: "Immediate on-location assistance for critical network issues.",
       icon: FaLifeRing
     },
     {
-      title: "Hardware Upgrade",
-      description: "Optimize performance with modern hardware solutions.",
+      title: "Aging Hardware",
+      description: "Hardware assessment and replacement planning for optimal performance.",
       icon: FaMicrochip
     },
     {
-      title: "24/7 Monitoring",
-      description: "Continuous monitoring with instant response.",
+      title: "Network Monitor 24/7 Support",
+      description: "Round-the-clock monitoring and immediate response to network issues.",
       icon: BiSupport
     },
     {
       title: "Server Installation",
-      description: "Professional server setup and configuration.",
+      description: "Professional server setup and configuration for your business needs.",
       icon: FaServer
     }
   ];
@@ -79,33 +79,33 @@ const OurNetworkService = () => {
               className="group relative rounded-2xl bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
             >
               {/* Gradient Border */}
-              <div className="absolute left-0 top-0 h-1 w-full rounded-t-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
+              {/* <div className="absolute left-0 top-0 h-1 w-full rounded-t-2xl"></div> */}
 
               {/* Icon */}
-              <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-indigo-100 transition group-hover:bg-indigo-600">
-                <Icon className="text-4xl text-indigo-600 transition group-hover:text-white" />
+              <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full transition">
+                <Icon className="text-4xl text-indigo-600 transition" />
               </div>
 
               {/* Title */}
-              <h2 className="mb-2 text-center text-xl font-semibold">
+              <h2 className="mb-2 text-xl font-semibold">
                 {service.title}
               </h2>
 
               {/* Description */}
-              <p className="text-center text-lg leading-relaxed text-gray-600">
+              <p className="text-lg leading-relaxed text-gray-600">
                 {service.description}
               </p>
             </div>
           );
         })}
-
-
       </div>
-        <div className="text-center mt-12 px-4">
-        <button className="bg-indigo-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-indigo-700 transition">
-          Get a Network Assesment
+
+        <div className="mt-12 px-4 text-center">
+        <button className="bg-indigo-600 text-white px-6 py-3 rounded-md shadow-md hover:bg-red-500 transition">
+            Get a Network Assesment
         </button>
-      </div>
+        </div>
+
     </section>
   );
 };

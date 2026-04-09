@@ -13,7 +13,7 @@ const GlobalPresence = () => {
       address: "House 123, Road 45, Gulshan-2, Dhaka 1212",
       phone: "+88-01767774027",
       email: "info@aritechs.com",
-      color: "bg-indigo-50",
+      color: "bg-white",
       iconColor: "text-indigo-600",
     },
     {
@@ -21,7 +21,7 @@ const GlobalPresence = () => {
       address: "706 Autumn Ave, Brooklyn, NY 11208",
       phone: "+1-856-2638066",
       email: "ai@aritechs.com",
-      color: "bg-blue-50",
+      color: "bg-white",
       iconColor: "text-blue-600",
     },
   ];
@@ -45,7 +45,7 @@ const GlobalPresence = () => {
         {locations.map((loc, index) => (
           <div
             key={index}
-            className={`${loc.color} rounded-2xl p-6 shadow-sm hover:shadow-lg transition duration-300`}
+            className={`${loc.color} shadow-md rounded-2xl p-6`}
           >
 
             {/* City */}

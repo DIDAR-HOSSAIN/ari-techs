@@ -1,121 +1,32 @@
 {
     "menus": [
         {
-            "id": "1",
+            "id": "home",
             "title": "Home",
             "path": "/",
             "dropdown": []
         },
         {
-            "id": "3",
+            "id": "services",
             "title": "Services",
             "path": "/",
-            "dropdown": [
-                {
-                    "id": "3.1",
-                    "title": "Website Design",
-                    "path": "/"
-                },
-                {
-                    "id": "3.2",
-                    "title": "Logo Design",
-                    "path": "/"
-                },
-                {
-                    "id": "3.3",
-                    "title": "Software Development",
-                    "path": "/"
-                },
-                {
-                    "id": "3.4",
-                    "title": "Managed IT Services",
-                    "path": "/"
-                },
-                {
-                    "id": "3.5",
-                    "title": "Network Design",
-                    "path": "/"
-                },
-                {
-                    "id": "3.6",
-                    "title": "IT Support",
-                    "path": "/"
-                },
-                {
-                    "id": "3.7",
-                    "title": "IT Project",
-                    "path": "/"
-                }
-            ],
-            "megaMenus": [
-                {
-                    "id": 4.1,
-                    "megaMenuTitle": "Title-1",
-                    "path": "/",
-                    "megaMenuItems": [
-                        {
-                            "id": "3.1",
-                            "title": "Website Design",
-                            "path": "/"
-                        },
-                        {
-                            "id": "3.2",
-                            "title": "Logo Design",
-                            "path": "/"
-                        },
-                        {
-                            "id": "3.3",
-                            "title": "Software Development",
-                            "path": "/"
-                        },
-
-                        {
-                            "id": "3.4",
-                            "title": "Managed IT Services",
-                            "path": "/"
-                        }
-                    ]
-                },
-
-                {
-                    "id": 4.2,
-                    "megaMenuTitle": "Title-2",
-                    "path": "/",
-                    "megaMenuItems": [
-                        {
-                            "id": "3.5",
-                            "title": "Network Design",
-                            "path": "/"
-                        },
-                        {
-                            "id": "3.6",
-                            "title": "IT Support",
-                            "path": "/"
-                        },
-                        {
-                            "id": "3.7",
-                            "title": "IT Project",
-                            "path": "/"
-                        }
-                    ]
-                }
-            ]
+            "dropdown": []
         },
         {
-            "id": "4",
+            "id": "consulting",
             "title": "Consulting",
             "path": "/",
             "dropdown": []
         },
         {
-            "id": "5",
+            "id": "aboutAritechs",
             "title": "About",
-            "path": "/about"
+            "path": "/"
         },
         {
-            "id": "6",
+            "id": "contactSection",
             "title": "Contact",
-            "path": "/contacts/create"
+            "path": "/"
         }
     ]
 }

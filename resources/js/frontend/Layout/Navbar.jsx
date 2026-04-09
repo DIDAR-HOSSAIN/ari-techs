@@ -14,6 +14,24 @@ const Navbar = ({ user }) => {
     const [hoveredMobileMenu, setHoveredMobileMenu] = useState(null);
     const isLargeScreen = useMediaQuery({ minWidth: 1024 });
 
+
+            const scrollToSection = (id) => {
+        // 👉 HOME হলে top এ যাবে
+        if (id === "home") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            return;
+        }
+
+        // 👉 অন্য section
+        const el = document.getElementById(id);
+        if (el) {
+            const yOffset = -80; // navbar height
+            const y = el.offsetTop + yOffset;
+
+            window.scrollTo({ top: y, behavior: "smooth" });
+        }
+        };
+
     const handleMobileMenuOpen = () => {
         setIsMobileMenuOpen(true);
     };
@@ -31,9 +49,9 @@ const Navbar = ({ user }) => {
     };
 
     return (
-        <div className="navbar h-24 bg-cyan-800 font-bold relative z-[999] sticky top-0">
+        <div className="navbar h-24 bg-cyan-800 font-bold z-[999] sticky top-0">
             {/* Mobile Menu */}
-            <div className="navbar-start relative relative z-[999]">
+            <div className="navbar-start relative z-[999]">
                 <div className="dropdown">
                     <div
                         tabIndex={0}
@@ -109,7 +127,7 @@ const Navbar = ({ user }) => {
             {/* Desktop Menu */}
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    {menus.length > 0 &&
+                    {/* {menus.length > 0 &&
                         menus.map((menu) => (
                             <li
                                 className="text-white text-lg relative"
@@ -143,6 +161,25 @@ const Navbar = ({ user }) => {
                                         </ul>
                                     )}
                             </li>
+                        ))} */}
+
+                        {menus.map((menu) => (
+                        <li key={menu.id} className="text-white text-lg">
+
+                            {menu.path === "/" ? (
+                            // 👉 HOME SCROLL
+                            <button
+                                onClick={() => scrollToSection(menu.id)}
+                                className="cursor-pointer"
+                            >
+                                {menu.title}
+                            </button>
+                            ) : (
+                            // 👉 NORMAL PAGE
+                            <Link href={menu.path}>{menu.title}</Link>
+                            )}
+
+                        </li>
                         ))}
                 </ul>
             </div>

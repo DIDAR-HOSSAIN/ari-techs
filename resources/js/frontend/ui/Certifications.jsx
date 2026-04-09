@@ -13,37 +13,37 @@ const Certifications = () => {
     {
       title: "Microsoft Certified Solutions Expert (MCSE)",
       icon: FaMicrosoft,
-      bg: "bg-blue-50",
+      bg: "bg-white",
       iconColor: "text-blue-600",
     },
     {
       title: "Cisco Certified Network Professional (CCNP)",
       icon: FaNetworkWired,
-      bg: "bg-indigo-50",
+      bg: "bg-white",
       iconColor: "text-indigo-600",
     },
     {
       title: "CompTIA Security+",
       icon: FaShieldAlt,
-      bg: "bg-red-50",
+      bg: "bg-white",
       iconColor: "text-red-600",
     },
     {
       title: "AWS Certified Solutions Architect",
       icon: FaAws,
-      bg: "bg-yellow-50",
+      bg: "bg-white",
       iconColor: "text-yellow-600",
     },
     {
       title: "ITIL Foundation Certified",
       icon: FaCogs,
-      bg: "bg-purple-50",
+      bg: "bg-white",
       iconColor: "text-purple-600",
     },
     {
       title: "VMware Certified Professional (VCP)",
       icon: FaServer,
-      bg: "bg-green-50",
+      bg: "bg-white",
       iconColor: "text-green-600",
     },
   ];
@@ -70,7 +70,7 @@ const Certifications = () => {
           return (
             <div
               key={index}
-              className={`${item.bg} rounded-2xl p-6 flex items-center gap-4 shadow-sm hover:shadow-md transition`}
+              className={`${item.bg} rounded-2xl p-2 flex items-center gap-2 shadow-sm hover:shadow-md transition`}
             >
               {/* Icon */}
               <div className="w-20 h-20 flex items-center justify-center rounded-full bg-white shadow">
@@ -78,7 +78,7 @@ const Certifications = () => {
               </div>
 
               {/* Title */}
-              <h3 className="lg:text-lg md:text-base font-semibold text-gray-800">
+              <h3 className="lg:text-md md:text-base font-semibold text-gray-800">
                 {item.title}
               </h3>
             </div>
