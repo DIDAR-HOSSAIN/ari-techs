@@ -3,7 +3,6 @@ import FrontendLayout from "@/frontend/Layout/FrontendLayout";
 import { Head } from "@inertiajs/react";
 import Carousel from "@/frontend/ui/Carousel";
 import OurNetworkService from "@/frontend/ui/OurNetworkService";
-import Fold from "@/frontend/ui/Fold";
 import FreeEvaluation from "@/frontend/ui/FreeEvaluation";
 import YourNetwork from "@/frontend/ui/YourNetwork";
 import Contact from "@/frontend/ui/Contact";
@@ -31,11 +30,10 @@ const Home = ({ auth, sliders }) => {
             <Head title="Home" />
             <Carousel sliders={sliders} />
             <OurNetworkService />
-            {/* <Fold /> */}
+            <ITConsulting />
             <WhyChoose />
             <CTASection />
-            <CustomITSolutions />
-            <ITConsulting />
+            {/* <CustomITSolutions /> */}
             <WhyChooseConsulting />
             <AboutAritechs />
             <Certifications />

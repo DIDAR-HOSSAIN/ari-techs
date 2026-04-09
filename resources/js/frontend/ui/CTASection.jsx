@@ -26,9 +26,9 @@ const CTASection = () => {
           </button>
 
           {/* Secondary Button */}
-          <button className="rounded-full border border-white px-6 py-3 text-sm sm:text-base font-semibold text-white hover:bg-white hover:text-indigo-600 transition">
+          {/* <button className="rounded-full border border-white px-6 py-3 text-sm sm:text-base font-semibold text-white hover:bg-white hover:text-indigo-600 transition">
             View Case Studies
-          </button>
+          </button> */}
 
         </div>
 

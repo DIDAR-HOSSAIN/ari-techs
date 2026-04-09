@@ -84,9 +84,9 @@ const WhyChooseConsulting = () => {
             Get Free Assessment
           </button>
 
-          <button className="border border-indigo-600 text-indigo-600 px-6 py-3 rounded-full hover:bg-indigo-600 hover:text-white transition">
+          {/* <button className="border border-indigo-600 text-indigo-600 px-6 py-3 rounded-full hover:bg-indigo-600 hover:text-white transition">
             Download Consulting Guide
-          </button>
+          </button> */}
         </div>
       </div>
 

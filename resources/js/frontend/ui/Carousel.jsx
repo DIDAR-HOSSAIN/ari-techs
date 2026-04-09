@@ -67,7 +67,7 @@ const Carousel = ({ sliders = [] }) => {
                   href={slide.button_link || "#"}
                   className="mt-3 inline-block bg-indigo-600 text-white px-5 py-2 text-xs sm:text-sm md:text-base font-medium rounded-full shadow-lg hover:bg-indigo-700 transition"
                 >
-                  Learn More
+                  For More Details
                 </a>
               
             </div>
